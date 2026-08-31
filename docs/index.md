@@ -6,6 +6,8 @@ hide:
 
 # Expresso Flow
 
+<div class="beta-banner">BETA</div>
+
 <div class="hero" markdown>
 
 # Construa fluxos de comunicação com elegância e velocidade.
