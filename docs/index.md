@@ -84,23 +84,24 @@ hide:
 
 ## Hello World
 
-O `main.py` mínimo para iniciar um projeto:
+```python title="app/flows/saudacao/saudacao_flow.py"
+from exflow.flow import Flow, StepOptions, step, flow
+from exflow.interaction import InteractionContext
+from exflow.execution_action import CompletedFlowAction
 
-```python title="main.py"
-from exflow.application.bootstrap import ExpressoFlowBootstrap
-from webflow_bundle import WebflowBundle
 
-bootstrap = ExpressoFlowBootstrap(
-    bundles=[
-        WebflowBundle(),
-    ]
-)
+@flow()
+class SaudacaoFlow(Flow):
+    """Flow de saudação — cumprimenta o usuário pelo nome."""
 
-if __name__ == "__main__":
-    bootstrap.run()
+    id = "saudacao"
+    name = "Saudação"
+
+    @step(order=0, label="Saudar", description="Envia uma mensagem de boas-vindas ao usuário")
+    async def saudar(self, ctx: InteractionContext, options: StepOptions):
+        await ctx.output.send_text("👋 Olá! Bem-vindo ao *Expresso Flow*!")
+        return CompletedFlowAction()
 ```
-
-Com o `WebflowBundle` registrado, acesse `http://localhost:8080/webflow` no navegador para visualizar e interagir com seus fluxos.
 
 ---
 
