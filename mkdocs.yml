@@ -1,0 +1,160 @@
+site_name: Expresso Flow
+site_description: Framework Python para construção de fluxos de comunicação em canais como WhatsApp, Telegram, ChatWeb e outros.
+site_url: https://exflow.run
+site_author: Expresso Flow Team
+repo_url: https://github.com/expresso-flow/expresso-flow
+repo_name: expresso-flow/expresso-flow
+edit_uri: ""
+
+copyright: Copyright &copy; 2024 - 2025 Expresso Flow
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  palette:
+    scheme: default
+    primary: blue
+    accent: blue
+  font:
+    text: Inter
+    code: IBM Plex Mono
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+    - toc.follow
+    - toc.integrate
+
+plugins:
+  - search:
+      lang: pt
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: Nesta página
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  version:
+    provider: mike
+    default: latest
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/expresso-flow/expresso-flow
+      name: GitHub
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/expresso-flow/
+      name: PyPI
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/exflow
+      name: Discord
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  annotate:
+    json: [.s2]
+
+extra_css:
+  - assets/css/extra.css
+
+extra_javascript:
+  - assets/js/extra.js
+
+nav:
+  - Home: index.md
+  - Começando:
+    - getting-started/index.md
+    - Instalação: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+    - Primeiro Fluxo: getting-started/first-flow.md
+  - Downloads: downloads/index.md
+  - Core (ExpressoFlow):
+    - core/index.md
+    - Bootstrap: core/bootstrap.md
+    - Flows: core/flows.md
+    - Steps: core/steps.md
+    - Bundles: core/bundles.md
+    - Canais:
+      - core/channels/index.md
+      - WhatsApp: core/channels/whatsapp.md
+      - Telegram: core/channels/telegram.md
+      - ChatWeb: core/channels/chatweb.md
+    - Configuração: core/configuration.md
+    - Pacotes e Agentes: core/packages.md
+  - CLI:
+    - cli/index.md
+    - Instalação: cli/installation.md
+    - Comandos:
+      - cli/commands/index.md
+      - exflow new: cli/commands/new.md
+      - exflow run: cli/commands/run.md
+      - exflow build: cli/commands/build.md
+      - exflow add: cli/commands/add.md
+  - WebFlow:
+    - webflow/index.md
+    - Instalação: webflow/installation.md
+    - Configuração: webflow/configuration.md
+    - Interface: webflow/interface.md
+    - Depuração: webflow/debugging.md
+  - Referência de API:
+    - api/index.md
+    - expresso_flow: api/expresso-flow.md
+    - expresso_flow.flow: api/flow.md
+    - expresso_flow.step: api/step.md
+    - expresso_flow.bundle: api/bundle.md
+    - expresso_flow.channel: api/channel.md
+  - Changelog: changelog.md
