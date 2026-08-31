@@ -310,22 +310,11 @@ except Exception as e:
 
 ## Ações de retorno
 
-Todo step deve retornar uma subclasse de `ExecutionAction`. Se nenhuma ação for retornada, o framework aplica **`NextStepFlowAction`** automaticamente, avançando para o próximo step.
+Todo step deve retornar uma subclasse de `ExecutionAction`. Se nenhuma ação for retornada, o framework aplica **`NextStepFlowAction`** automaticamente.
 
-```python
-from exflow.execution_action import ExecutionAction  # classe base abstrata
-```
-
-A classe base expõe dois campos opcionais disponíveis em todas as actions:
-
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| `data` | `dict` | Dados arbitrários propagados para o próximo step |
-| `path` | `str \| Enum \| None` | Caminho/rota alternativo de execução |
+Consulte a [referência completa de Execution Actions →](actions.md)
 
 ---
-
-### Controle de input
 
 | Action | Parâmetros | Descrição |
 |--------|-----------|-----------|
@@ -381,28 +370,7 @@ return GoToStepLabelFlowAction(label="Confirmar pedido")
 
 ### Transição entre flows
 
-Todas as actions abaixo recebem `flow_id` com o `id` do flow de destino.
-
-| Action | Comportamento no flow atual | Comportamento no flow destino |
-|--------|-----------------------------|-------------------------------|
-| `ExecuteFlowAction(flow_id)` | Aplica `thread_status` | Executa o flow destino |
-| `ForceExecuteFlowAction(flow_id)` | — | Força execução imediata |
-| `CompleteAndStartFlowAction(flow_id)` | Conclui | Inicia |
-| `SuspendAndStartFlowAction(flow_id)` | Suspende | Inicia |
-| `CancelAndStartFlowAction(flow_id)` | Cancela | Inicia |
-| `CompleteAndResumeFlowAction(flow_id)` | Conclui | Retoma suspenso |
-| `SuspendAndResumeFlowAction(flow_id)` | Suspende | Retoma suspenso |
-| `CancelAndResumeFlowAction(flow_id)` | Cancela | Retoma suspenso |
-
-```python
-from exflow.execution_action import CompleteAndStartFlowAction, SuspendAndStartFlowAction
-
-# Conclui o flow atual e inicia o flow de suporte
-return CompleteAndStartFlowAction(flow_id="suporte")
-
-# Suspende o flow atual e inicia o flow de autenticação (retomável)
-return SuspendAndStartFlowAction(flow_id="autenticacao")
-```
+Consulte a [referência completa de Execution Actions →](actions.md)
 
 ---
 

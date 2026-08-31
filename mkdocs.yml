@@ -135,6 +135,7 @@ nav:
       - ChatWeb: core/channels/chatweb.md
     - Configuração: core/configuration.md
     - Sessão: core/session.md
+    - Execution Actions: core/actions.md
     - Pacotes e Agentes: core/packages.md
   - CLI:
     - cli/index.md
