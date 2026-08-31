@@ -128,11 +128,15 @@ nav:
     - Flows: core/flows.md
     - Steps: core/steps.md
     - Bundles: core/bundles.md
+    - InteractionContext:
+      - Message: core/interaction/message.md
+      - Output: core/interaction/output.md
+      - Console: core/interaction/console.md
+      - Media: core/interaction/media.md
     - Canais:
       - core/channels/index.md
       - WhatsApp: core/channels/whatsapp.md
-      - Telegram: core/channels/telegram.md
-      - ChatWeb: core/channels/chatweb.md
+      - WebFlow: webflow/index.md
     - Configuração: core/configuration.md
     - Sessão: core/session.md
     - Execution Actions: core/actions.md
