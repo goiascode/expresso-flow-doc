@@ -4,113 +4,95 @@
 
 ---
 
-## Texto
+## Métodos disponíveis
 
-```python
-await ctx.output.send_text("Olá! 👋")
-await ctx.output.reply_text("Recebi sua mensagem.", reply_to="message_id")
-```
-
----
-
-## Botões
-
-```python
-await ctx.output.send_buttons(
-    body_text="Como posso te ajudar?",
-    buttons=[
-        ("btn_1", "Suporte"),
-        ("btn_2", "Vendas"),
-    ]
-)
-```
-
-```python
-await ctx.output.reply_buttons(
-    body_text="Escolha uma opção:",
-    buttons=[("btn_1", "Opção A"), ("btn_2", "Opção B")],
-    reply_to="message_id",
-)
-```
-
----
-
-## Lista de itens
-
-```python
-await ctx.output.send_list(
-    body_text="Escolha uma opção:",
-    items=[
-        ("item_1", "Opção 1"),
-        ("item_2", "Opção 2", "Descrição opcional"),
-    ],
-    action_title="Selecionar",
-)
-```
-
----
-
-## Botão de URL
-
-```python
-await ctx.output.send_url_button(
-    body_text="Acesse nossa documentação",
-    display_text="Ver documentação",
-    url="https://exflow.run",
-)
-```
-
----
-
-## Mídia
-
+### Texto
 | Método | Descrição |
-|--------|----------|
+|--------|-----------|
+| `send_text(text)` | Envia texto |
+| `reply_text(text, reply_to?)` | Responde com texto |
+
+### Botões
+| Método | Descrição |
+|--------|-----------|
+| `send_buttons(body_text, buttons, on_select?)` | Envia mensagem com botões |
+| `reply_buttons(body_text, buttons, on_select?, reply_to?)` | Responde com botões |
+
+### Lista
+| Método | Descrição |
+|--------|-----------|
+| `send_list(body_text, items, action_title?, on_select?)` | Envia lista de seleção |
+| `reply_list(body_text, items, action_title?, reply_to?, on_select?)` | Responde com lista |
+
+### URL Button
+| Método | Descrição |
+|--------|-----------|
+| `send_url_button(body_text, display_text, url)` | Envia botão de link |
+| `reply_url_button(body_text, display_text, url, reply_to?)` | Responde com botão de link |
+
+### Mídia
+| Método | Descrição |
+|--------|-----------|
 | `send_image(media_url, caption?)` | Envia imagem |
-| `reply_image(media_url, caption?, reply_to?)` | Responde com imagem |
 | `send_audio(media_url)` | Envia áudio |
-| `reply_audio(media_url, reply_to?)` | Responde com áudio |
 | `send_video(media_url, caption?)` | Envia vídeo |
-| `reply_video(media_url, caption?, reply_to?)` | Responde com vídeo |
 | `send_document(media_url, caption?, filename?)` | Envia documento |
-| `reply_document(media_url, caption?, filename?, reply_to?)` | Responde com documento |
 
-```python
-await ctx.output.send_image("https://exemplo.com/img.png", caption="Legenda")
-await ctx.output.send_document("https://exemplo.com/manual.pdf", filename="manual.pdf")
-```
-
----
-
-## Carrossel
-
-```python
-# Botões de resposta rápida
-await ctx.output.send_carousel_quick_reply(
-    body_text="Confira nossos planos:",
-    cards=[
-        ("Plano Basic", "R$ 29/mês", [("btn_basic", "Escolher")]),
-        ("Plano Pro",   "R$ 79/mês", [("btn_pro",   "Escolher")]),
-    ],
-)
-
-# Botões de URL
-await ctx.output.send_carousel_url(
-    body_text="Conheça nossos produtos:",
-    cards=[
-        ("Produto A", "Descrição A", "https://exemplo.com/a", "Ver mais"),
-        ("Produto B", "Descrição B", "https://exemplo.com/b", "Ver mais"),
-    ],
-)
-```
+### Carrossel
+| Método | Descrição |
+|--------|-----------|
+| `send_carousel_quick_reply(body_text, cards, header_type?)` | Carrossel com botões de resposta rápida |
+| `send_carousel_url(body_text, cards, header_type?)` | Carrossel com botões de URL |
 
 ---
 
-## Builder avançado
+## Exemplo
 
-Para envios customizados use `send()` / `reply()` com um `_BaseBuilder`:
+```python title="app/flows/menu/menu_flow.py"
+from exflow.flow import Flow, StepOptions, step, flow
+from exflow.interaction import InteractionContext
+from exflow.execution_action import CompletedFlowAction, WaitUserInputAction
 
-```python
-await ctx.output.send(builder)
-await ctx.output.reply(builder, reply_to="message_id")
+
+@flow()
+class MenuFlow(Flow):
+    """Flow de menu principal que demonstra os principais tipos de output."""
+
+    id = "menu_flow"
+    name = "Menu Principal"
+
+    @step(order=0, label="Exibir menu", description="Exibe as opções do menu principal com botões")
+    async def menu(self, ctx: InteractionContext, options: StepOptions):
+        await ctx.output.send_buttons(
+            body_text="Como posso te ajudar?",
+            buttons=[
+                ("btn_info", "Informações"),
+                ("btn_doc", "Documentos"),
+                ("btn_link", "Site"),
+            ]
+        )
+        return WaitUserInputAction()
+
+    @step(order=1, label="Responder opção", description="Responde conforme a opção selecionada no menu")
+    async def responder(self, ctx: InteractionContext, options: StepOptions):
+        btn_id = ctx.message.get_button_id()
+
+        if btn_id == "btn_info":
+            await ctx.output.send_text("ℹ️ Aqui estão as informações solicitadas.")
+
+        elif btn_id == "btn_doc":
+            await ctx.output.send_document(
+                "https://exemplo.com/manual.pdf",
+                filename="manual.pdf",
+                caption="Manual do usuário",
+            )
+
+        elif btn_id == "btn_link":
+            await ctx.output.send_url_button(
+                body_text="Acesse nossa página:",
+                display_text="Acessar site",
+                url="https://exflow.run",
+            )
+
+        return CompletedFlowAction()
 ```

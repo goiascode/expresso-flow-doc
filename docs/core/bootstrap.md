@@ -103,7 +103,9 @@ bootstrap = ExpressoFlowBootstrap(
 
 ## Bundle
 
-Um **bundle** é uma unidade de extensão do bootstrap. Qualquer funcionalidade que precise interagir com o ciclo de vida da aplicação — configurar serviços, registrar rotas, reagir ao shutdown — deve ser implementada como um bundle.
+O sistema de bundles é o mecanismo oficial de extensão do Expresso Flow. Seu objetivo é permitir que qualquer desenvolvedor expanda as capacidades do framework — adicionando canais de comunicação, integrações externas, repositórios de dados, rotas HTTP, políticas de recuperação, agentes de IA e qualquer outro componente — sem modificar o núcleo do framework.
+
+Um bundle encapsula um conjunto coeso de funcionalidades e se integra ao ciclo de vida da aplicação através de hooks executados pelo `ExpressoFlowBootstrap` durante a inicialização e o encerramento. Os próprios canais oficiais (WhatsApp, WebFlow, etc.) são implementados como bundles.
 
 ```python
 from exflow.application.bundle import Bundle
