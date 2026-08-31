@@ -1,40 +1,59 @@
-# `expresso_flow`
+# `exflow.application.bootstrap`
 
 ```python
-from expresso_flow import ExpressoFlow
+from exflow.application.bootstrap import ExpressoFlowBootstrap
 ```
 
 ---
 
-## `ExpressoFlow`
+## `ExpressoFlowBootstrap`
 
-Classe principal da aplicação. Ponto de entrada do framework.
+Entry point da aplicação. Inicializa bundles, registra flows e sobe o servidor HTTP (FastAPI + Uvicorn).
 
 ### Construtor
 
 ```python
-ExpressoFlow(
-    name: str = "expresso-flow-app",
-    debug: bool = False,
-    config: Config | None = None,
+ExpressoFlowBootstrap(
+    *,
+    host: str = "localhost",
+    port: int = 8080,
+    bundles: list[Bundle] = [],
+    is_debug: bool = False,
+    class_loader_paths: list[str] = [],
 )
 ```
+
+| Parâmetro | Tipo | Padrão | Descrição |
+|-----------|------|--------|-----------|
+| `host` | `str` | `"localhost"` | Host de escuta do servidor |
+| `port` | `int` | `8080` | Porta do servidor |
+| `bundles` | `list[Bundle]` | `[]` | Bundles adicionais (registrados após os padrão) |
+| `is_debug` | `bool` | `False` | Ativa modo debug via `IS_DEBUG` env |
+| `class_loader_paths` | `list[str]` | `[]` | Pastas extras para carregamento automático de flows |
 
 ### Métodos
 
 | Método | Assinatura | Descrição |
 |--------|-----------|-----------|
-| `flow` | `(slug: str) -> Callable` | Decorador/registrador de flows |
-| `register_bundle` | `(bundle: Bundle) -> None` | Registra um bundle no bootstrap |
-| `run` | `(host: str, port: int) -> None` | Inicia a aplicação (bloqueante) |
+| `run()` | `() -> None` | Inicia o servidor (bloqueante) |
+| `get_instance()` | `classmethod () -> ExpressoFlowBootstrap` | Retorna a instância singleton |
 
-### Propriedades
+### Bundles padrão registrados automaticamente
 
-| Propriedade | Tipo | Descrição |
-|-------------|------|-----------|
-| `state` | `SimpleNamespace` | Namespace compartilhado acessível de qualquer parte da aplicação |
-| `flows` | `dict[str, type[Flow]]` | Dicionário de flows registrados por slug |
-| `bundles` | `list[Bundle]` | Lista de bundles registrados |
+| Bundle | Descrição |
+|--------|-----------|
+| `ConfigDefaultBundle` | Configurações padrão |
+| `DefaultIntentsBundle` | Intents do engine de IA |
+| `FailureRecoveryBundle` | Políticas de recuperação de falhas |
+| `InfoBundle` | Endpoint de informações |
+| `FlowApiBundle` | API REST para execução de flows |
+| `FlowLoaderBundle` | Carregamento automático de flows por pasta |
 
-!!! note "Em construção"
-    Assinaturas completas, parâmetros adicionais e exemplos avançados serão adicionados nesta página.
+### Pastas carregadas automaticamente
+
+```
+app/flows/       app/metaflows/    app/services/
+app/apis/        app/providers/    app/llms/
+```
+
+Consulte a [documentação completa do Bootstrap →](../core/bootstrap.md)

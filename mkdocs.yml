@@ -159,9 +159,9 @@ nav:
     - Depuração: webflow/debugging.md
   - Referência de API:
     - api/index.md
-    - expresso_flow: api/expresso-flow.md
-    - expresso_flow.flow: api/flow.md
-    - expresso_flow.step: api/step.md
-    - expresso_flow.bundle: api/bundle.md
-    - expresso_flow.channel: api/channel.md
+    - exflow.application.bootstrap: api/expresso-flow.md
+    - exflow.flow: api/flow.md
+    - exflow.interaction: api/step.md
+    - exflow.execution_action: api/bundle.md
+    - exflow.application.bundle: api/channel.md
   - Changelog: changelog.md

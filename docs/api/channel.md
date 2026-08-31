@@ -1,31 +1,48 @@
-# `expresso_flow.channel`
+# `exflow.application.bundle`
 
 ```python
-from expresso_flow.channel import Channel, ChannelEvent
+from exflow.application.bundle import Bundle
+from exflow.application.bootstrap import ExpressoFlowBootstrap
 ```
 
 ---
 
-## `Channel`
+## `Bundle`
 
-Classe base para implementação de canais customizados.
+Classe base abstrata para todos os bundles. Mecanismo oficial de extensão do framework.
 
-!!! note "Em construção"
-    Documentação completa em elaboração.
+### Hooks do ciclo de vida
 
----
+| Hook | Assinatura | Quando é chamado |
+|------|-----------|-----------------|
+| `register(bootstrap)` | `(ExpressoFlowBootstrap) -> None` | Antes de `configure()` — registra componentes |
+| `configure(bootstrap)` | `(ExpressoFlowBootstrap) -> None` | Após todos os `register()` — aplica configurações |
+| `routes(bootstrap)` | `(ExpressoFlowBootstrap) -> list[APIRouter]` | Após `configure()` — adiciona rotas FastAPI |
+| `shutdown()` | `() -> None` | Ao encerrar a aplicação |
 
-## `ChannelEvent`
+### Ordem de execução
 
-Representa um evento normalizado recebido de qualquer canal.
+```
+register() → configure() → routes() → shutdown()
+```
 
-| Atributo | Tipo | Descrição |
-|----------|------|-----------|
-| `user_id` | `str` | Identificador do usuário no canal |
-| `channel` | `str` | Nome do canal de origem |
-| `text` | `str \| None` | Texto da mensagem, se houver |
-| `type` | `str` | Tipo do evento (`text`, `image`, `audio`, etc.) |
-| `raw` | `Any` | Payload bruto do canal original |
+### Exemplo mínimo
 
-!!! note "Em construção"
-    Documentação completa em elaboração.
+```python
+from exflow.application.bundle import Bundle
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+
+
+class MeuBundle(Bundle):
+
+    def register(self, bootstrap: ExpressoFlowBootstrap) -> None:
+        bootstrap.meu_servico = MeuServico()
+
+    def configure(self, bootstrap: ExpressoFlowBootstrap) -> None:
+        bootstrap.meu_servico.configure()
+
+    def shutdown(self) -> None:
+        bootstrap.meu_servico.close()
+```
+
+Consulte a [documentação completa de Bundle →](../core/bootstrap.md#bundle)
