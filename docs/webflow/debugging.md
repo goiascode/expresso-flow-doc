@@ -8,7 +8,7 @@ O painel **DEBUG** exibe em tempo real tudo que acontece durante a execução do
 
 A aba **Console** registra todas as mensagens trocadas e os logs emitidos via `ctx.console`.
 
-![Console mostrando sent, received, error, info e warning](../assets/images/webflow/webflow-panel-console.png)
+![Console mostrando sent, received, error, info e warning](../assets/images/webflow/webflow-panel-console.png{ width="380" }
 
 ### Tipos de entrada
 
@@ -35,7 +35,7 @@ O campo `MESSAGE` pode conter subtipos que indicam o formato da mensagem recebid
 
 A aba **Steps** exibe cada step executado com seus metadados e status.
 
-![Steps mostrando ACTIVE e COMPLETED](../assets/images/webflow/webflow-panel-steps.png)
+![Steps mostrando ACTIVE e COMPLETED](../assets/images/webflow/webflow-panel-steps.png{ width="380" }
 
 ### Status dos steps
 
@@ -67,25 +67,25 @@ O mesmo step pode aparecer duas vezes:
 
 A aba **Requests** registra todas as requisições HTTP externas feitas durante a execução.
 
-![Requests mostrando POST 200](../assets/images/webflow/webflow-panel-requests.png)
+![Requests mostrando POST 200](../assets/images/webflow/webflow-panel-requests.png{ width="380" }
 
 Cada linha exibe o método, status code (verde para 2xx) e tempo de resposta. Clique em uma entrada para inspecionar os detalhes.
 
 ### Request Details — Request
 
-![Detalhe da requisição, aba Request](../assets/images/webflow/webflow-modal-request-request.png)
+![Detalhe da requisição, aba Request](../assets/images/webflow/webflow-modal-request-request.png{ width="640" }
 
 Exibe os **headers** e o **body** enviados na requisição. Útil para verificar credenciais, tokens e payload.
 
 ### Request Details — Response
 
-![Detalhe da requisição, aba Response](../assets/images/webflow/webflow-modal-request-response.png)
+![Detalhe da requisição, aba Response](../assets/images/webflow/webflow-modal-request-response.png{ width="640" }
 
 Exibe os **headers** e o **body** da resposta recebida — incluindo tokens de acesso, dados JSON retornados, etc.
 
 ### Request Details — cURL
 
-![Detalhe da requisição, aba cURL](../assets/images/webflow/webflow-modal-request-curl.png)
+![Detalhe da requisição, aba cURL](../assets/images/webflow/webflow-modal-request-curl.png{ width="640" }
 
 Gera o **comando cURL** equivalente com botão **Copy**. Útil para:
 
@@ -99,11 +99,11 @@ Gera o **comando cURL** equivalente com botão **Copy**. Útil para:
 
 A aba **Exceptions** exibe as exceções não tratadas capturadas pelo runtime.
 
-![Exceptions mostrando uma entrada ERROR](../assets/images/webflow/webflow-panel-exception.png)
+![Exceptions mostrando uma entrada ERROR](../assets/images/webflow/webflow-panel-exception.png{ width="380" }
 
 Cada entrada mostra o nível e a mensagem. Clique para abrir o modal de detalhes completo.
 
-![Modal de detalhe de exceção com MESSAGE e STACK TRACE](../assets/images/webflow/webflow-modal-exception.png)
+![Modal de detalhe de exceção com MESSAGE e STACK TRACE](../assets/images/webflow/webflow-modal-exception.png{ width="640" }
 
 | Campo | Descrição |
 |-------|-----------|

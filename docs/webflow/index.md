@@ -40,7 +40,7 @@ http://localhost:8080/webflow
 
 A interface é dividida em dois painéis principais:
 
-![Interface do WebFlow — painel de chat e painel de debug](../assets/images/webflow/webflow-interface.png)
+![Interface do WebFlow — painel de chat e painel de debug](../assets/images/webflow/webflow-chat.png)
 
 ### Painel de Chat
 
