@@ -50,38 +50,6 @@ hide:
 
 ---
 
-## Por que Expresso Flow?
-
-<div class="grid cards" markdown>
-
-- :material-lightning-bolt: **Rápido para começar**
-
-    Do `pip install` ao primeiro fluxo em produção em menos de 10 minutos, com CLI integrada para scaffolding do projeto.
-
-- :material-puzzle: **Arquitetura de Bundles**
-
-    Instale apenas o que você precisa. WebFlow, canais e agentes de IA são bundles independentes e configuráveis no bootstrap.
-
-- :material-routes: **Multi-canal nativo**
-
-    Escreva um fluxo uma única vez e conecte a WhatsApp, Telegram, ChatWeb e outros canais com configuração mínima.
-
-- :material-bug: **WebFlow: depuração visual**
-
-    Acesse e interaja com seus fluxos locais diretamente pelo navegador com o bundle **WebFlow**, sem infraestrutura extra.
-
-- :material-robot: **Agentes de IA integrados**
-
-    Adicione inteligência aos seus fluxos com agentes de IA disponíveis no repositório Expresso Flow.
-
-- :material-code-braces: **Python puro**
-
-    Toda a lógica do fluxo é escrita em Python 3.12 idiomático — sem DSLs, sem YAML de negócio, sem magia desnecessária.
-
-</div>
-
----
-
 ## Hello World
 
 ```python title="app/flows/saudacao/saudacao_flow.py"
@@ -112,6 +80,38 @@ class SaudacaoFlow(Flow):
 | **Core** (`exflow`) | Motor principal de fluxos | `pip install exflow` |
 | **CLI** (`exflow`) | Scaffolding, execução e build via terminal | [Download](downloads/index.md) |
 | **WebFlow** (`exflow-webflow`) | Interface web para debug local | `pip install exflow-webflow` |
+
+---
+
+## Por que Expresso Flow?
+
+<div class="grid cards" markdown>
+
+- :material-lightning-bolt: **Rápido para começar**
+
+    Do `pip install` ao primeiro fluxo em produção em menos de 10 minutos, com CLI integrada para scaffolding do projeto.
+
+- :material-puzzle: **Arquitetura de Bundles**
+
+    Instale apenas o que você precisa. WebFlow, canais e agentes de IA são bundles independentes e configuráveis no bootstrap.
+
+- :material-routes: **Multi-canal nativo**
+
+    Escreva um fluxo uma única vez e conecte a WhatsApp, Telegram, ChatWeb e outros canais com configuração mínima.
+
+- :material-bug: **WebFlow: depuração visual**
+
+    Acesse e interaja com seus fluxos locais diretamente pelo navegador com o bundle **WebFlow**, sem infraestrutura extra.
+
+- :material-robot: **Agentes de IA integrados**
+
+    Adicione inteligência aos seus fluxos com agentes de IA disponíveis no repositório Expresso Flow.
+
+- :material-code-braces: **Python puro**
+
+    Toda a lógica do fluxo é escrita em Python 3.12 idiomático — sem DSLs, sem YAML de negócio, sem magia desnecessária.
+
+</div>
 
 ---
 

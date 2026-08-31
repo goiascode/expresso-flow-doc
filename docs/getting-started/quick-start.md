@@ -17,15 +17,12 @@ exflow create project --name meu-projeto
 cd meu-projeto
 ```
 
-A CLI cria a estrutura de diretórios e os arquivos de configuração na pasta atual.
+A CLI cria a estrutura de diretórios, os arquivos de configuração e instala as dependências automaticamente.
 
-### 3. Instale as dependências
+!!! tip
+    O comando `exflow create project` já executa `pip install -r requirements.txt` ao final. Não é necessário instalar as dependências manualmente.
 
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Execute o projeto
+### 3. Execute o projeto
 
 ```bash
 python main.py
