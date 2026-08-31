@@ -13,19 +13,23 @@ Consulte [Downloads](../downloads/index.md) para obter o binário da sua platafo
 ### 2. Crie um novo projeto
 
 ```bash
-exflow new meu-projeto
+exflow create project --name meu-projeto
 cd meu-projeto
 ```
 
-A CLI gera a estrutura de diretórios, cria o ambiente virtual e instala as dependências automaticamente.
+A CLI cria a estrutura de diretórios e os arquivos de configuração na pasta atual.
 
-### 3. Execute o projeto
+### 3. Instale as dependências
 
 ```bash
-exflow run
+pip install -r requirements.txt
 ```
 
-O framework iniciará e você verá no terminal o endereço para acesso local.
+### 4. Execute o projeto
+
+```bash
+python main.py
+```
 
 ---
 

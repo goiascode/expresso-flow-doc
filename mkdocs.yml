@@ -125,21 +125,22 @@ nav:
   - Core (ExpressoFlow):
     - core/index.md
     - Bootstrap: core/bootstrap.md
-    - Flows: core/flows.md
-    - Steps: core/steps.md
-    - Bundles: core/bundles.md
+    - Bundles: core/bundles.mdd
+    - Flows:
+      - Flow: core/flows.md
+      - FlowSession: core/session.md
+      - Steps: core/steps.md
+      - Execution Actions: core/actions.md
     - InteractionContext:
       - Message: core/interaction/message.md
       - Output: core/interaction/output.md
       - Console: core/interaction/console.md
-      - Media: core/interaction/media.md
+      - Media: core/interaction/media.m
     - Canais:
       - core/channels/index.md
       - WhatsApp: core/channels/whatsapp.md
       - WebFlow: webflow/index.md
     - Configuração: core/configuration.md
-    - Sessão: core/session.md
-    - Execution Actions: core/actions.md
     - Pacotes e Agentes: core/packages.md
   - CLI:
     - cli/index.md
