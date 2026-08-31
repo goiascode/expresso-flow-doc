@@ -122,20 +122,20 @@ nav:
     - Quick Start: getting-started/quick-start.md
     - Primeiro Fluxo: getting-started/first-flow.md
   - Downloads: downloads/index.md
-  - Core (ExpressoFlow):
+  - ExpressoFlow:
     - core/index.md
     - Bootstrap: core/bootstrap.md
-    - Bundles: core/bundles.mdd
+    - Bundles: core/bundles.md
     - Flows:
       - Flow: core/flows.md
-      - FlowSession: core/session.md
+      - Session: core/session.md
       - Steps: core/steps.md
       - Execution Actions: core/actions.md
     - InteractionContext:
       - Message: core/interaction/message.md
       - Output: core/interaction/output.md
       - Console: core/interaction/console.md
-      - Media: core/interaction/media.m
+      - Media: core/interaction/media.md
     - Canais:
       - core/channels/index.md
       - WhatsApp: core/channels/whatsapp.md

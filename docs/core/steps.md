@@ -14,6 +14,7 @@ from exflow.execution_action import CompletedFlowAction, WaitUserInputAction
 
 @flow()
 class MeuFlow(Flow):
+    """Flow de exemplo — descreva aqui o propósito deste flow."""
 
     id = "meu_flow"
     name = "Meu Flow"
