@@ -76,5 +76,5 @@ Para atualizar para a versão mais recente, repita o comando de download acima. 
 
 ## Próximos passos
 
-- [exflow new →](commands/new.md)
+- [exflow create →](commands/new.md)
 - [exflow run →](commands/run.md)

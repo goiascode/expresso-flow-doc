@@ -108,4 +108,4 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
 ## Próximos passos
 
 - [CLI — Introdução →](../cli/index.md)
-- [exflow new →](../cli/commands/new.md)
+- [exflow create →](../cli/commands/new.md)

@@ -14,7 +14,7 @@ Consulte a página de [Downloads](../downloads/index.md) para instalar o binári
 
 | Comando | Descrição |
 |---------|-----------|
-| [`exflow new`](commands/new.md) | Cria um novo projeto Expresso Flow |
+| [`exflow create`](commands/new.md) | Cria um novo projeto Expresso Flow |
 | [`exflow run`](commands/run.md) | Executa o projeto em modo desenvolvimento |
 | [`exflow build`](commands/build.md) | Prepara o projeto para produção |
 | [`exflow add`](commands/add.md) | Adiciona bundles, canais e pacotes ao projeto |
@@ -25,7 +25,7 @@ Consulte a página de [Downloads](../downloads/index.md) para instalar o binári
 
 ```bash
 # Criar novo projeto
-exflow new meu-projeto
+exflow create project --name meu-projeto
 
 # Entrar na pasta e executar
 cd meu-projeto
@@ -55,7 +55,7 @@ exflow <comando> --help
 
     Download e configuração do binário por plataforma.
 
-- :material-plus-box: **[exflow new](commands/new.md)**
+- :material-plus-box: **[exflow create](commands/new.md)**
 
     Cria a estrutura completa de um novo projeto.
 
