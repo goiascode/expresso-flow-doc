@@ -40,16 +40,7 @@ http://localhost:8080/webflow
 
 A interface é dividida em dois painéis principais:
 
-```
-┌──────────────────────────────┬─────────────────────────────┐
-│         CHAT                 │         DEBUG               │
-│                              │                             │
-│  Conversa interativa com     │  Console  Steps  Requests   │
-│  o flow em execução          │  Exceptions                 │
-│                              │                             │
-│  [campo de mensagem]         │  Log em tempo real          │
-└──────────────────────────────┴─────────────────────────────┘
-```
+![Interface do WebFlow — painel de chat e painel de debug](../assets/images/webflow/webflow-interface.png)
 
 ### Painel de Chat
 
