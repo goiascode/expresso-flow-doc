@@ -36,19 +36,54 @@ hide:
 === "CLI (macOS / Linux)"
 
     ```bash
-    # Baixe o binário e adicione ao PATH
-    curl -L https://exflow.run/bin/macos/exflow -o /usr/local/bin/exflow
-    chmod +x /usr/local/bin/exflow
+    # Instala em ~/.local/bin (sem permissão de administrador)
+    mkdir -p ~/.local/bin
+    curl -L https://exflow.run/bin/macos/exflow -o ~/.local/bin/exflow
+    chmod +x ~/.local/bin/exflow
+    ```
+
+    Verifique:
+
+    ```bash
     exflow --version
     ```
 
 === "CLI (Windows)"
 
     ```powershell
-    # Baixe o executável
-    Invoke-WebRequest -Uri https://exflow.run/bin/windows/exflow.exe -OutFile exflow.exe
-    # Adicione ao PATH ou mova para uma pasta já no PATH
+    # Cria a pasta e baixa o executável
+    New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.local\bin"
+    Invoke-WebRequest -Uri https://exflow.run/bin/windows/exflow.exe `
+        -OutFile "$env:USERPROFILE\.local\bin\exflow.exe"
     ```
+
+    Verifique:
+
+    ```powershell
+    exflow --version
+    ```
+
+!!! tip "Adicionando ao PATH"
+    === ":fontawesome-brands-linux: Linux (bash)"
+        ```bash
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+        ```
+
+    === ":fontawesome-brands-apple: macOS (zsh)"
+        ```zsh
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+        ```
+
+    === ":fontawesome-brands-windows: Windows (PowerShell)"
+        ```powershell
+        [System.Environment]::SetEnvironmentVariable(
+            "PATH",
+            "$env:USERPROFILE\.local\bin;" +
+            [System.Environment]::GetEnvironmentVariable("PATH", "User"),
+            "User"
+        )
+        ```
+        Feche e reabra o terminal após executar.
 
 ---
 
