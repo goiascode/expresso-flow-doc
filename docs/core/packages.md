@@ -12,7 +12,7 @@ pip install --index-url https://exflow.run/simple <NOME_DO_PACOTE>
 
 | Pacote | Descrição |
 |--------|-----------|
-| `expresso-flow` | Core do framework |
+| `exflow` | Core do framework |
 | `exflow-webflow` | Interface web de debug e teste |
 | `exflow-whatsapp` | Canal WhatsApp Business |
 | `exflow-telegram` | Canal Telegram |
@@ -38,5 +38,5 @@ https://exflow.run/simple
 Para listar pacotes disponíveis:
 
 ```bash
-pip index versions --index-url https://exflow.run/simple expresso-flow
+pip index versions --index-url https://exflow.run/simple exflow
 ```

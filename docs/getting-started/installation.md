@@ -7,12 +7,12 @@
 
 ---
 
-## Core — `expresso-flow`
+## Core — `exflow`
 
 O pacote principal do framework é instalado via **pip** a partir do repositório oficial:
 
 ```bash
-pip install --index-url https://exflow.run/simple expresso-flow
+pip install --index-url https://exflow.run/simple exflow
 ```
 
 ### Ambiente virtual (recomendado)
@@ -24,14 +24,14 @@ pip install --index-url https://exflow.run/simple expresso-flow
     source .venv/bin/activate        # Linux / macOS
     .venv\Scripts\activate           # Windows
 
-    pip install --index-url https://exflow.run/simple expresso-flow
+    pip install --index-url https://exflow.run/simple exflow
     ```
 
 === "uv"
 
     ```bash
     uv venv
-    uv pip install --index-url https://exflow.run/simple expresso-flow
+    uv pip install --index-url https://exflow.run/simple exflow
     ```
 
 ### Instalando as dependências do projeto

@@ -34,7 +34,7 @@ O framework iniciará e você verá no terminal o endereço para acesso local.
 ### 1. Instale o core
 
 ```bash
-pip install --index-url https://exflow.run/simple expresso-flow
+pip install --index-url https://exflow.run/simple exflow
 ```
 
 ### 2. Crie o arquivo principal

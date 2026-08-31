@@ -7,7 +7,7 @@ O módulo **Core** é o coração do framework. Ele provê o motor de execução
 ## Instalação
 
 ```bash
-pip install --index-url https://exflow.run/simple expresso-flow
+pip install --index-url https://exflow.run/simple exflow
 ```
 
 ---

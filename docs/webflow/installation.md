@@ -5,7 +5,7 @@
 O core do Expresso Flow deve estar instalado:
 
 ```bash
-pip install --index-url https://exflow.run/simple expresso-flow
+pip install --index-url https://exflow.run/simple exflow
 ```
 
 ---

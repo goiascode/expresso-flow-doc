@@ -28,7 +28,7 @@ hide:
 === "pip"
 
     ```bash
-    pip install --index-url https://exflow.run/simple expresso-flow
+    pip install --index-url https://exflow.run/simple exflow
     ```
 
 === "CLI (macOS / Linux)"
@@ -108,7 +108,7 @@ Com o `WebflowBundle` registrado, acesse `http://localhost:8080/webflow` no nave
 
 | Módulo | Descrição | Instalação |
 |--------|-----------|------------|
-| **Core** (`expresso-flow`) | Motor principal de fluxos | `pip install expresso-flow` |
+| **Core** (`exflow`) | Motor principal de fluxos | `pip install exflow` |
 | **CLI** (`exflow`) | Scaffolding, execução e build via terminal | [Download](downloads/index.md) |
 | **WebFlow** (`exflow-webflow`) | Interface web para debug local | `pip install exflow-webflow` |
 
