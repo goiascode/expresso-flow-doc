@@ -7,35 +7,69 @@ O **WebFlow** é um bundle do Expresso Flow que disponibiliza uma **interface we
 ## Instalação
 
 ```bash
-pip install --index-url https://exflow.run/simple exflow-webflow
-```
-
-Ou via CLI:
-
-```bash
-exflow add webflow
+pip install --index-url https://exflow.run/simple webflow-bundle
 ```
 
 ---
 
-## Como funciona
+## Configuração no bootstrap
 
-O WebFlow registra um servidor web leve no bootstrap do `ExpressoFlow`. Ao acessar `http://localhost:<porta>` no navegador, você vê uma lista de todos os flows registrados e pode:
+```python title="main.py"
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+from webflow_bundle import WebflowBundle
 
-- Iniciar uma conversa com qualquer flow
-- Enviar e receber mensagens em tempo real
-- Inspecionar o estado da sessão (`ctx.session`)
-- Ver o log de steps executados
-- Simular timeouts e erros
+bootstrap = ExpressoFlowBootstrap(
+    bundles=[
+        WebflowBundle(),
+    ]
+)
 
-```mermaid
-graph LR
-    Browser -- WebSocket --> WebFlowBundle
-    WebFlowBundle -- Evento normalizado --> ExpressoFlow
-    ExpressoFlow -- Executa --> Flow
-    Flow -- Resposta --> WebFlowBundle
-    WebFlowBundle -- Mensagem --> Browser
+if __name__ == "__main__":
+    bootstrap.run()
 ```
+
+Acesse no navegador:
+
+```
+http://localhost:8080/webflow
+```
+
+---
+
+## Visão geral da interface
+
+A interface é dividida em dois painéis principais:
+
+```
+┌──────────────────────────────┬─────────────────────────────┐
+│         CHAT                 │         DEBUG               │
+│                              │                             │
+│  Conversa interativa com     │  Console  Steps  Requests   │
+│  o flow em execução          │  Exceptions                 │
+│                              │                             │
+│  [campo de mensagem]         │  Log em tempo real          │
+└──────────────────────────────┴─────────────────────────────┘
+```
+
+### Painel de Chat
+
+- Exibe a conversa em tempo real entre o usuário e o flow
+- Campo de texto para enviar mensagens ao flow
+- Histórico completo da sessão atual
+- Seletor de usuário/sessão no topo
+
+### Painel de Debug
+
+Painel lateral com 4 abas:
+
+| Aba | Descrição |
+|-----|-----------|
+| **Console** | Logs emitidos via `ctx.console` (info, warning, error, etc.) |
+| **Steps** | Histórico de steps executados com status, ordem e tempo de execução |
+| **Requests** | Requisições HTTP realizadas durante a execução do flow |
+| **Exceptions** | Exceções não tratadas capturadas durante a execução |
+
+O contador no cabeçalho (`DEBUG 7`) indica o total de eventos registrados na sessão. O botão **Clear** limpa todos os registros.
 
 ---
 
@@ -43,20 +77,16 @@ graph LR
 
 <div class="grid cards" markdown>
 
-- :material-download: **[Instalação](installation.md)**
-
-    Como instalar e adicionar o WebFlow ao projeto.
-
 - :material-tune: **[Configuração](configuration.md)**
 
-    Todas as opções do `WebFlowBundle`.
+    Parâmetros do `WebflowBundle`.
 
 - :material-monitor: **[Interface](interface.md)**
 
-    Tour pela interface web — painéis, controles e funcionalidades.
+    Detalhes de cada painel e aba da interface.
 
 - :material-bug: **[Depuração](debugging.md)**
 
-    Técnicas de debug com o WebFlow: sessões, steps e estado.
+    Como usar o painel de debug para inspecionar steps, console e exceções.
 
 </div>
