@@ -45,7 +45,7 @@ hide:
     Verifique:
 
     ```bash
-    exflow --version
+    exflow version
     ```
 
 === "CLI (Windows)"
@@ -60,7 +60,7 @@ hide:
     Verifique:
 
     ```powershell
-    exflow --version
+    exflow version
     ```
 
 !!! tip "Adicionando ao PATH"
