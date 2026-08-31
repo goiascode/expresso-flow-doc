@@ -84,25 +84,23 @@ hide:
 
 ## Hello World
 
-Um fluxo mínimo para começar:
+O `main.py` mínimo para iniciar um projeto:
 
 ```python title="main.py"
-from expresso_flow import ExpressoFlow
-from expresso_flow.flow import Flow
-from expresso_flow.step import Step, Message
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+from webflow_bundle import WebflowBundle
 
-app = ExpressoFlow()
-
-@app.flow("hello")
-class HelloFlow(Flow):
-
-    @Step.entry
-    async def start(self, ctx):
-        await ctx.send(Message.text("Olá! Bem-vindo ao Expresso Flow. 👋"))
+bootstrap = ExpressoFlowBootstrap(
+    bundles=[
+        WebflowBundle(),
+    ]
+)
 
 if __name__ == "__main__":
-    app.run()
+    bootstrap.run()
 ```
+
+Com o `WebflowBundle` registrado, acesse `http://localhost:8080/webflow` no navegador para visualizar e interagir com seus fluxos.
 
 ---
 

@@ -1,17 +1,14 @@
 # Configuração — WebFlow
 
-## `WebFlowBundle`
+## `WebflowBundle`
 
 ```python
-from exflow_webflow import WebFlowBundle
+from webflow_bundle import WebflowBundle
 
-app.register_bundle(
-    WebFlowBundle(
-        port=8765,
-        host="127.0.0.1",
-        title="Meu ChatBot — WebFlow",
-        open_browser=True,
-    )
+bootstrap = ExpressoFlowBootstrap(
+    bundles=[
+        WebflowBundle(),
+    ]
 )
 ```
 

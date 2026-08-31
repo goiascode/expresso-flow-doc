@@ -15,7 +15,7 @@ pip install --index-url https://exflow.run/simple expresso-flow
 === "pip"
 
     ```bash
-    pip install --index-url https://exflow.run/simple exflow-webflow
+    pip install --index-url https://exflow.run/simple webflow-bundle
     ```
 
 === "CLI"
@@ -28,26 +28,26 @@ pip install --index-url https://exflow.run/simple expresso-flow
 
 ## Registrar no bootstrap
 
-Após instalar, registre o bundle no `main.py` antes de `app.run()`:
+Após instalar, registre o bundle no `main.py` antes de `bootstrap.run()`:
 
 ```python title="main.py"
-from expresso_flow import ExpressoFlow
-from exflow_webflow import WebFlowBundle
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+from webflow_bundle import WebflowBundle
 
-app = ExpressoFlow()
-
-app.register_bundle(WebFlowBundle(port=8765))
-
-# ... seus flows ...
+bootstrap = ExpressoFlowBootstrap(
+    bundles=[
+        WebflowBundle(),
+    ]
+)
 
 if __name__ == "__main__":
-    app.run()
+    bootstrap.run()
 ```
 
 Execute e acesse no navegador:
 
 ```
-http://localhost:8765
+http://localhost:8080/webflow
 ```
 
 ---

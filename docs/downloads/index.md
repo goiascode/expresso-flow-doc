@@ -92,11 +92,16 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
     )
     ```
 
-    Abra um **novo** terminal e verifique:
+    Feche e reabra o terminal, depois verifique:
 
     ```powershell
     exflow --version
     ```
+
+    !!! tip "Por que configurar o PATH?"
+        Com o `exflow` no PATH você pode abrir o terminal em qualquer pasta e executar
+        `exflow create project --name meu-projeto` diretamente, sem precisar navegar
+        até onde o executável está salvo.
 
 ---
 

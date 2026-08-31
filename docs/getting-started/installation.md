@@ -34,10 +34,22 @@ pip install --index-url https://exflow.run/simple expresso-flow
     uv pip install --index-url https://exflow.run/simple expresso-flow
     ```
 
-### Verificar a instalação
+### Instalando as dependências do projeto
+
+O `requirements.txt` gerado pelo CLI já inclui o índice correto:
+
+```text title="requirements.txt"
+--index-url https://exflow.run/simple --trusted-host exflow.run
+
+exflow
+webflow-bundle
+python-dotenv
+```
+
+Para instalar:
 
 ```bash
-python -c "import expresso_flow; print(expresso_flow.__version__)"
+pip install -r requirements.txt
 ```
 
 ---

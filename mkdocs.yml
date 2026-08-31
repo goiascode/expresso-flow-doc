@@ -134,13 +134,14 @@ nav:
       - Telegram: core/channels/telegram.md
       - ChatWeb: core/channels/chatweb.md
     - Configuração: core/configuration.md
+    - Sessão: core/session.md
     - Pacotes e Agentes: core/packages.md
   - CLI:
     - cli/index.md
     - Instalação: cli/installation.md
     - Comandos:
       - cli/commands/index.md
-      - exflow new: cli/commands/new.md
+      - exflow create: cli/commands/new.md
       - exflow run: cli/commands/run.md
       - exflow build: cli/commands/build.md
       - exflow add: cli/commands/add.md

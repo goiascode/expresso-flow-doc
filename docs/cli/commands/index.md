@@ -7,12 +7,12 @@ Referência completa de todos os comandos da CLI `exflow`.
 ## Visão geral
 
 ```
-exflow [COMANDO] [OPÇÕES] [ARGUMENTOS]
+exflow [COMANDO] [SUB-COMANDO] [OPÇÕES]
 ```
 
 | Comando | Descrição |
-|---------|-----------|
-| [`new`](new.md) | Cria um novo projeto |
+|---------|----------|
+| [`create project`](new.md) | Cria um novo projeto |
 | [`run`](run.md) | Executa o projeto em modo desenvolvimento |
 | [`build`](build.md) | Gera artefato de produção |
 | [`add`](add.md) | Adiciona pacotes/bundles ao projeto |

@@ -16,20 +16,23 @@ pip install --index-url https://exflow.run/simple expresso-flow
 
 ```mermaid
 graph TD
-    A[main.py] --> B[ExpressoFlow]
-    B --> C[Bootstrap]
-    C --> D[Bundle Registry]
-    C --> E[Flow Registry]
-    D --> F[WebFlow Bundle]
-    D --> G[Channel Bundles]
-    E --> H[Flow A]
-    E --> I[Flow B]
-    G --> J[WhatsApp]
-    G --> K[Telegram]
-    G --> L[ChatWeb]
+    A["main.py"] --> B["ExpressoFlowBootstrap\n(bundles=[...])"]
+    B --> C["WebflowBundle\n:8080/webflow"]
+    B --> D["Channel Bundles"]
+    B --> E["Flow Container"]
+    D --> F["WhatsApp"]
+    D --> G["Telegram"]
+    D --> H["ChatWeb"]
+    E --> I["@flow() HellowFlow\nid · name · description"]
+    E --> J["@flow() OutroFlow\nid · name · description"]
+    I --> K["@step(0) start"]
+    I --> L["@step(1) on_user_input"]
+    K --> M["InteractionContext\noutput · message · media · console"]
+    K --> N["FlowSession\nself.session"]
+    K --> O["ExecutionAction\nWaitUserInput · Completed · GoToStep · ..."]
 ```
 
-O `ExpressoFlow` é o ponto de entrada da aplicação. No momento do `app.run()`, o bootstrap inicializa todos os **bundles** registrados e começa a escutar eventos dos canais, roteando-os para os **flows** correspondentes.
+O `ExpressoFlowBootstrap` é o ponto de entrada da aplicação. Ao chamar `bootstrap.run()`, todos os **bundles** registrados são inicializados. Os canais recebem mensagens dos usuários e as roteiam para os **flows** registrados no container, que as processam step a step.
 
 ---
 
@@ -37,13 +40,15 @@ O `ExpressoFlow` é o ponto de entrada da aplicação. No momento do `app.run()`
 
 | Componente | Módulo | Descrição |
 |------------|--------|-----------|
-| `ExpressoFlow` | `expresso_flow` | Classe principal — entry point da aplicação |
-| `Flow` | `expresso_flow.flow` | Classe base para criação de fluxos |
-| `Step` | `expresso_flow.step` | Decoradores e primitivas de etapas |
-| `Message` | `expresso_flow.step` | Abstração de mensagens multi-canal |
-| `Context` | `expresso_flow.context` | Objeto de contexto injetado em cada step |
-| `Bundle` | `expresso_flow.bundle` | Classe base para bundles |
-| `Channel` | `expresso_flow.channel` | Classe base para canais |
+| `ExpressoFlowBootstrap` | `exflow.application.bootstrap` | Entry point — inicializa bundles e flows |
+| `Flow` | `exflow.flow` | Classe base para criação de flows |
+| `flow` | `exflow.flow` | Decorador que registra o flow no container |
+| `step` | `exflow.flow` | Decorador que define a ordem e metadados do step |
+| `StepOptions` | `exflow.flow` | Metadados injetados em cada step (`direction`, `data`) |
+| `InteractionContext` | `exflow.interaction` | Contexto da interação (`output`, `message`, `media`, `console`) |
+| `FlowSession` | — | Sessão de dados persistida entre steps (`self.session`) |
+| `ExecutionAction` | `exflow.execution_action` | Ações que controlam o fluxo de execução |
+| `WebflowBundle` | `webflow_bundle` | Interface web para debug e teste local |
 
 ---
 
@@ -74,6 +79,10 @@ O `ExpressoFlow` é o ponto de entrada da aplicação. No momento do `app.run()`
 - :material-tune: **[Configuração](configuration.md)**
 
     Variáveis de ambiente, arquivos de configuração e opções avançadas.
+
+- :material-database: **[Sessão](session.md)**
+
+    Persistência de dados entre steps com `FlowSession`.
 
 - :material-package-variant: **[Pacotes e Agentes](packages.md)**
 

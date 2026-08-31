@@ -40,29 +40,13 @@ pip install --index-url https://exflow.run/simple expresso-flow
 ### 2. Crie o arquivo principal
 
 ```python title="main.py"
-from expresso_flow import ExpressoFlow
-from expresso_flow.flow import Flow
-from expresso_flow.step import Step, Message
+from exflow.application.bootstrap import ExpressoFlowBootstrap
 
-app = ExpressoFlow()
-
-@app.flow("saudacao")
-class SaudacaoFlow(Flow):
-    """Fluxo de saudação simples."""
-
-    @Step.entry  # (1)!
-    async def inicio(self, ctx):
-        await ctx.send(Message.text("Olá! Como posso te ajudar? 😊"))
-
-        resposta = await ctx.wait_input()  # (2)!
-        await ctx.send(Message.text(f"Você digitou: {resposta.text}"))
+bootstrap = ExpressoFlowBootstrap()
 
 if __name__ == "__main__":
-    app.run()
+    bootstrap.run()
 ```
-
-1. `@Step.entry` define o ponto de entrada do fluxo — o primeiro step a ser executado.
-2. `ctx.wait_input()` suspende o fluxo aguardando uma resposta do usuário.
 
 ### 3. Execute
 
@@ -77,30 +61,31 @@ python main.py
 Para inspecionar o fluxo no navegador, instale e configure o bundle **WebFlow**:
 
 ```bash
-pip install --index-url https://exflow.run/simple exflow-webflow
+pip install --index-url https://exflow.run/simple webflow-bundle
 ```
 
-```python title="main.py" hl_lines="2 7 8"
-from expresso_flow import ExpressoFlow
-from exflow_webflow import WebFlowBundle
+```python title="main.py" hl_lines="2 4 5 6"
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+from webflow_bundle import WebflowBundle
 
-app = ExpressoFlow()
-
-# Registra o bundle WebFlow no bootstrap
-app.register_bundle(WebFlowBundle(port=8765))
-
-# ... seus flows aqui ...
+bootstrap = ExpressoFlowBootstrap(
+    bundles=[
+        WebflowBundle(),  # (1)!
+    ]
+)
 
 if __name__ == "__main__":
-    app.run()
+    bootstrap.run()
 ```
 
-Acesse `http://localhost:8765` no navegador para interagir com seus fluxos visualmente.
+1. O `WebflowBundle` sobe um servidor web na porta `8080` que permite interagir com os fluxos diretamente pelo navegador.
+
+Acesse `http://localhost:8080/webflow` no navegador para interagir com seus fluxos visualmente.
 
 ---
 
 ## Próximos passos
 
-- [Primeiro Fluxo →](first-flow.md) — aprofunde-se na estrutura de flows e steps
-- [Core →](../core/index.md) — documentação completa do módulo principal
-- [WebFlow →](../webflow/index.md) — saiba mais sobre a ferramenta de debug visual
+- [Primeiro Fluxo →](first-flow.md)
+- [Bootstrap →](../core/bootstrap.md)
+- [WebFlow →](../webflow/index.md)

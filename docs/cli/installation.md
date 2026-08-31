@@ -37,12 +37,34 @@ Consulte a página de [Downloads](../downloads/index.md) para todos os links de 
 === ":fontawesome-brands-windows: Windows"
 
     1. Baixe o executável em [https://exflow.run/bin/windows/exflow.exe](https://exflow.run/bin/windows/exflow.exe)
-    2. Mova `exflow.exe` para uma pasta incluída no `PATH` (ex: `C:\Windows\System32` ou crie uma pasta dedicada)
-    3. Abra o **Prompt de Comando** ou **PowerShell** e verifique:
+    2. Crie uma pasta dedicada, por exemplo `C:\exflow\bin`, e mova o `exflow.exe` para lá
+    3. Adicione essa pasta ao **PATH do sistema** para que o `exflow` possa ser executado de qualquer diretório:
+
+        **Via interface gráfica:**
+
+        - Abra **Painel de Controle → Sistema → Configurações avançadas do sistema → Variáveis de Ambiente**
+        - Em **Variáveis do sistema**, selecione `Path` e clique em **Editar**
+        - Clique em **Novo** e adicione o caminho `C:\exflow\bin`
+        - Confirme com **OK** em todas as janelas
+
+        **Via PowerShell (como Administrador):**
+
+        ```powershell
+        [System.Environment]::SetEnvironmentVariable(
+            "PATH",
+            "$([System.Environment]::GetEnvironmentVariable('PATH','Machine'));C:\exflow\bin",
+            "Machine"
+        )
+        ```
+
+    4. Feche e reabra o terminal, depois verifique:
 
     ```powershell
     exflow --version
     ```
+
+    !!! tip "Por que configurar o PATH?"
+        Com o `exflow` no PATH, você pode abrir o terminal em qualquer pasta do seu computador e executar `exflow create project --name meu-projeto` diretamente, sem precisar navegar até onde o executável está salvo.
 
 ---
 
