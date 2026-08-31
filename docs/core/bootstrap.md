@@ -101,6 +101,94 @@ bootstrap = ExpressoFlowBootstrap(
 
 ---
 
+## Bundle
+
+Um **bundle** é uma unidade de extensão do bootstrap. Qualquer funcionalidade que precise interagir com o ciclo de vida da aplicação — configurar serviços, registrar rotas, reagir ao shutdown — deve ser implementada como um bundle.
+
+```python
+from exflow.application.bundle import Bundle
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+```
+
+### Classe base
+
+```python
+class Bundle(ABC):
+
+    def configure(self, bootstrap: ExpressoFlowBootstrap) -> None:
+        """Configurações aplicadas após o registro de todos os bundles."""
+        pass
+
+    def register(self, bootstrap: ExpressoFlowBootstrap) -> None:
+        """Registro de componentes (repositórios, serviços, etc.) no bootstrap."""
+        pass
+
+    def routes(self, bootstrap: ExpressoFlowBootstrap) -> list[APIRouter]:
+        """Rotas FastAPI expostas pelo bundle."""
+        return []
+
+    def shutdown(self) -> None:
+        """Executado ao encerrar a aplicação."""
+        pass
+```
+
+### Ciclo de vida
+
+A ordem de execução dos hooks segue o ciclo definido pelo `ExpressoFlowBootstrap`:
+
+```mermaid
+flowchart LR
+    A["register()"] --> B["configure()"] --> C["routes()"] --> D["shutdown()"]
+```
+
+| Hook | Quando é chamado | Uso típico |
+|------|-----------------|------------|
+| `register()` | Antes de `configure()` | Registrar repositórios, fábricas e serviços no bootstrap |
+| `configure()` | Após todos os `register()` | Aplicar configurações que dependem de outros bundles já registrados |
+| `routes()` | Após `configure()` | Adicionar rotas FastAPI (`APIRouter`) à aplicação |
+| `shutdown()` | Ao encerrar (`CTRL+C`) | Fechar conexões, liberar recursos |
+
+### Criando um bundle customizado
+
+```python
+from fastapi import APIRouter
+from exflow.application.bundle import Bundle
+from exflow.application.bootstrap import ExpressoFlowBootstrap
+
+
+class MeuBundle(Bundle):
+
+    def register(self, bootstrap: ExpressoFlowBootstrap) -> None:
+        bootstrap.meu_servico = MeuServico()
+
+    def configure(self, bootstrap: ExpressoFlowBootstrap) -> None:
+        bootstrap.meu_servico.configure(debug=True)
+
+    def routes(self, bootstrap: ExpressoFlowBootstrap) -> list[APIRouter]:
+        router = APIRouter(prefix="/meu-bundle")
+
+        @router.get("/status")
+        def status():
+            return {"status": "ok"}
+
+        return [router]
+
+    def shutdown(self) -> None:
+        bootstrap.meu_servico.close()
+```
+
+Registre o bundle no bootstrap:
+
+```python
+bootstrap = ExpressoFlowBootstrap(
+    bundles=[
+        MeuBundle(),
+    ]
+)
+```
+
+---
+
 ## Exemplo mínimo
 
 ```python title="main.py"
