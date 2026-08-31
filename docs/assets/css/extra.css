@@ -4,6 +4,22 @@
     color: var(--md-default-fg-color);
 }
 
+/* Nav links — destaque mais forte */
+.md-nav__link {
+  color: #222222 !important;
+}
+
+.md-nav__link:hover,
+.md-nav__link:focus {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.md-nav__link--active {
+  color: #1565c0 !important;
+  font-weight: 700;
+}
+
 /* Faixa (ribbon) de versão beta — canto superior direito */
 .beta-banner {
   position: fixed;
