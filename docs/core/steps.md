@@ -431,6 +431,6 @@ class CadastroFlow(Flow):
 
 ## Próximos passos
 
-- [Flows →](flows.md)
+- [Flows →](flow.md)
 - [Canais →](channels/index.md)
 - [Referência de API — Step →](../api/step.md)

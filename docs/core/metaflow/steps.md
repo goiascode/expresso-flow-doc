@@ -52,9 +52,8 @@ async def finalizar(self, ctx: InteractionContext, *args, **kwargs):
 
 ---
 
-## `FieldFlowStep`
-
-Substitui o comportamento padrão de pergunta para um campo específico. Use quando a coleta de um campo exige interação mais rica — como uma lista paginada, um carrossel ou validação de UI personalizada.
+## FieldFlowStep
+Substitui o comportamento padrão de pergunta para um campo específico. Use quando a coleta de um campo exige interação mais rica — como uma lista paginada, um carrossel ou validação de UI personalizada.(`CidadeStep`)
 
 ```python
 from exflow.metaflow import FieldFlowStep
@@ -71,7 +70,7 @@ class CidadeStep(FieldFlowStep):
     """
     Step para seleção de cidade via lista paginada.
     """
-    field = CidadeField()   # associa ao campo pelo tipo
+    field = CidadeField()   # Associa o Step ao campo pelo tipo
 
     def __init__(self):
         self._datasource = CidadeDatasource()
@@ -83,41 +82,60 @@ class CidadeStep(FieldFlowStep):
         super().__init__()
 
     async def execute(self, ctx: InteractionContext, options: StepOptions):
-        # Seleção via item de lista ou botão
+        # 1. Seleção via item de lista interativa
         if ctx.message.is_item():
             if self._datasource.exists(context=ctx, id=ctx.message.get_item_id(), label=ctx.message.get_item_label()):
                 return NextStepFlowAction()
 
+        # 2. Seleção via botão interativo
         if ctx.message.is_button():
             if self._datasource.exists(context=ctx, id=ctx.message.get_button_id(), label=ctx.message.get_button_label()):
                 return NextStepFlowAction()
 
-        # Paginação
+        # 3. Navegação da Paginação (Próxima Página)
         if self._pagelist.is_next_page(ctx):
             await self._pagelist.next_page(ctx)
             return ListenUserInputAction()
 
+        # 4. Navegação da Paginação (Página Anterior)
         if self._pagelist.is_prev_page(ctx):
             await self._pagelist.prev_page(ctx)
             return ListenUserInputAction()
 
-        # Reexibição ao voltar (REWIND)
+        # 5. Reexibição ao voltar no fluxo (REWIND)
         if options.direction == FlowDirection.REWIND:
             await self._pagelist.current_page(ctx, message="Você precisa selecionar uma cidade.")
             return ListenUserInputAction()
 
+        # 6. Exibição inicial (Primeira Página)
         await self._pagelist.first_page(ctx)
         return ListenUserInputAction()
 ```
+```python
+from exflow.metaflow import Field
+from app.metaflows.usuario.models.user_model import UserModel
 
-### Atributos obrigatórios
+class CidadeField(Field[UserModel]):
+    """
+    Campo para seleção de cidade do usuario.
+    """
 
-| Atributo | Tipo | Descrição |
-|----------|------|-----------|
-| `field` | `Field` | Instância do campo que este step substitui |
+    name = "cidade"
+    priority = 13
+    question = "Selecione uma cidade para continuar."
+    validation_error_message = "Falha ao verificar Cidade."
+```
 
-### Registrando no MetaFlow
+## Atributos obrigatórios
+---
+| **Atributo** | **Tipo** | **Descrição**                               |
+| ------------ | -------- | ------------------------------------------- |
+| `field`      | `Field`  | Instância do campo que este step substitui. |
+---
 
+## Registrando no MetaFlow
+
+Registrando:
 ```python
 from exflow.flow import flow
 from exflow.metaflow import MetaFlow
@@ -145,13 +163,96 @@ class UsuarioFlow(MetaFlow):
     def load_fields(self):
         return [CidadeField(), NomeField()]
 
-    def load_field_steps(self):  # (1)!
+    def load_field_steps(self):
         return [
             CidadeStep(),
         ]
 ```
+---
 
-1. O engine associa o `CidadeStep` ao `CidadeField` pelo tipo da instância em `field`. Quando o loop chega na cidade, executa o step customizado.
+## Detalhamento das Responsabilidades
 
-!!! info "Correspondência por tipo"
-    O engine associa o `FieldFlowStep` ao campo pelo **tipo** da instância em `field`. Quando o loop chega naquele campo, executa o step customizado em vez da pergunta padrão.
+### Associação com o Campo (`field`)
+* **`field = CidadeField()`**: Associa diretamente o Step ao campo correspondente do modelo (`UserModel.cidade`). Isso garante que a resposta validada seja vinculada ao estado do fluxo.
+
+### Inicialização (`__init__`)
+* **`CidadeDatasource`**: Provedor dos dados das cidades (disponibiliza os itens no formato `ListItem`).
+* **`PageList`**: Gerenciador da experiência de usuário (UX) responsável por:
+  * Manter o estado da página atual por usuário (`namespace="usuarios"`).
+  * Renderizar os botões/listas interativas no WhatsApp/Chatbot.
+  * Formatar mensagens de navegação (*Ver mais*, *Voltar*).
+
+---
+
+## Fluxo de Execução do Método `execute()`
+
+O método `execute` opera como uma **máquina de estados**, avaliando a interação do usuário na seguinte ordem:
+
+```
+                    📩 MENSAGEM RECEBIDA
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │ É uma opção da lista │
+                 │     ou um botão?     │
+                 └──────────┬───────────┘
+                       SIM  │  NÃO
+                            │
+              ┌─────────────┘
+              ▼
+       ┌──────────────────┐
+       │ Está no          │
+       │ CidadeDatasource?│
+       └───────┬──────────┘
+          SIM  │  NÃO
+               │
+               ▼
+      ┌─────────────────┐       ┌───────────────────┐
+      │ NextStepFlow    │       │ Continuar fluxo   │
+      │ Action          │       │ normalmente       │
+      └─────────────────┘       └───────────────────┘
+
+
+              NÃO ──────────────────────────────┐
+                                                ▼
+                                  ┌────────────────────────┐
+                                  │ É comando de paginação?│
+                                  └───────────┬────────────┘
+                                         SIM │ NÃO
+                                             │
+                                             ▼
+                                  ┌─────────────────────┐
+                                  │ Qual a direção?     │
+                                  └──────────┬──────────┘
+                                             │
+                              ┌──────────────┴──────────────┐
+                              ▼                             ▼
+                         ◀ REWIND                       AVANÇAR ▶
+                              │                             │
+                              ▼                             ▼
+                     Página atual                    Próxima página
+                              │                             │
+                              └──────────────┬──────────────┘
+                                             ▼
+                                  🔄 Renderizar resultado
+```
+
+### A. Validação de Seleção (`is_item` / `is_button`)
+* Se o usuário clicou em um item da lista (`ctx.message.is_item()`) ou em um botão (`ctx.message.is_button()`):
+  * O método `_datasource.exists()` verifica se o ID e Label correspondem a uma cidade válida.
+  * Se for válida, retorna **`NextStepFlowAction()`**, avançando para a próxima etapa do fluxo.
+
+### B. Navegação de Páginas (`is_next_page` / `is_prev_page`)
+* **`is_next_page(ctx)`**: Identifica se o usuário clicou em *"Ver mais ➔"*. Executa `await self._pagelist.next_page(ctx)` e aguarda novo input (**`ListenUserInputAction()`**).
+* **`is_prev_page(ctx)`**: Identifica se o usuário clicou em *"⬅ Voltar"*. Executa `await self._pagelist.prev_page(ctx)` e aguarda novo input (**`ListenUserInputAction()`**).
+
+### C. Suporte a Rebobinamento / Voltar Passo (`REWIND`)
+* Quando o usuário retorna a este passo no fluxo (`options.direction == FlowDirection.REWIND`), o Step reexibe a página onde o usuário estava (`current_page`) acompanhada de uma mensagem de orientação.
+
+### D. Renderização Inicial (`first_page`)
+* Caso seja o primeiro acesso ao Step, `await self._pagelist.first_page(ctx)` exibe a primeira página da lista de cidades e retorna **`ListenUserInputAction()`** para aguardar a interação do usuário.
+
+### Vantagens desta Abordagem
+1. **Desacoplamento**: O `CidadeStep` é o único responsável pela lógica de paginação e interação UX.
+2. **Reaproveitamento de Estado**: O `PageList` gerencia automaticamente os offsets de página do usuário sem poluir o modelo de dados.
+3. **Resiliência de Navegação**: Suporta navegação para frente, para trás e reinício de contexto (REWIND) de forma nativa.

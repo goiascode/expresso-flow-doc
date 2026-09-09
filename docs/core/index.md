@@ -60,7 +60,7 @@ O `ExpressoFlowBootstrap` é o ponto de entrada da aplicação. Ao chamar `boots
 
     Como configurar e inicializar a aplicação `ExpressoFlow`.
 
-- :material-routes: **[Flows](flows.md)**
+- :material-routes: **[Flows](flow.md)**
 
     Criação e estruturação de fluxos conversacionais.
 

@@ -84,4 +84,4 @@ Acessível via `self.session` dentro de qualquer step.
 | `get(key, default?)` | Lê um valor |
 | `exists(key)` | Verifica existência |
 
-Consulte a [documentação completa de Flows →](../core/flows.md) e [FlowSession →](../core/session.md)
+Consulte a [documentação completa de Flows →](../core/flow.md) e [FlowSession →](../core/session.md)

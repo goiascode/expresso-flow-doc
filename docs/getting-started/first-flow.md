@@ -149,6 +149,6 @@ class SaudacaoFlow(Flow):
 
 ## Próximos passos
 
-- [Flows →](../core/flows.md) — referência completa sobre flows
+- [Flows →](../core/flow.md) — referência completa sobre flows
 - [Steps →](../core/steps.md) — ações, ctx e formatação de mensagens
 - [Bootstrap →](../core/bootstrap.md) — como configurar o `ExpressoFlowBootstrap`

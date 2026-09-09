@@ -127,18 +127,21 @@ nav:
     - Bootstrap: core/bootstrap.md
     - Bundles: core/bundles.md
     - Flows:
-      - Flow: core/flows.md
-      - Session: core/session.md
-      - Steps: core/steps.md
-      - Execution Actions: core/actions.md
-    - MetaFlow:
-      - core/metaflow/index.md
-      - Model: core/metaflow/model.md
-      - Fields: core/metaflow/fields.md
-      - Validators: core/metaflow/validators.md
-      - Resolvers: core/metaflow/resolvers.md
-      - Steps: core/metaflow/steps.md
-      - Exemplo completo: core/metaflow/example.md
+        - Flow:
+            - core/flow.md
+            - Session: core/session.md
+            - Steps: core/steps.md
+            - Execution Actions: core/actions.md
+        - MetaFlow:
+            - core/metaflow/index.md
+            - Model: core/metaflow/model.md
+            - Fields: core/metaflow/fields.md
+            - Validators: core/metaflow/validators.md
+            - Resolvers: core/metaflow/resolvers.md
+            - Steps: core/metaflow/steps.md
+            - Exemplo completo: core/metaflow/example.md
+        - Provider:
+            - Provider (exemplo): core/provider.md
     - InteractionContext:
       - Message: core/interaction/message.md
       - Output: core/interaction/output.md

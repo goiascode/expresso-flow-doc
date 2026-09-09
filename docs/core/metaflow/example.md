@@ -128,6 +128,21 @@ class TelefoneField(Field[UsuarioModel]):
         model.telefone = self.value.metadata["telefone"]
 ```
 
+```python title="app/metaflows/usuario/fields/cidade_field.py"
+from exflow.metaflow import Field
+from app.metaflows.usuario.models.user_model import UserModel
+
+class CidadeField(Field[UserModel]):
+    """
+    Campo para seleção de cidade do usuario.
+    """
+
+    name = "cidade"
+    priority = 13
+    question = "Selecione uma cidade para continuar."
+    validation_error_message = "Falha ao verificar Cidade."
+```
+
 ---
 
 ## Validator
@@ -165,6 +180,59 @@ class TelefoneResolver(FieldResolver):
             "id": 200,
             "telefone": field.value.raw,
         }
+```
+
+---
+
+## DataSource (Cidade)
+
+```python
+from exflow.ux import ListItem
+from exflow.datasources import DatasourceReader
+from exflow.interaction import InteractionContext
+
+
+class CidadeDatasource(DatasourceReader[ListItem]):
+    def exists(self, context: InteractionContext, id: str, label: str) -> bool:
+        cidades = self.get_all(context=context)
+        return any(c.id == id and c.label == label for c in cidades)
+
+    #  Buscar listagem externa (api/service)
+    #  def get_cidades_api(self, context: InteractionContext) -> list[ListItem]
+    #       return await self.serviceCidade.listAll()
+    #        TODO...
+
+    def get_all(self, context: InteractionContext) -> list[ListItem]:
+        return [
+            # Primeira Pagina
+            ListItem(id="1", label="São Paulo"),
+            ListItem(id="2", label="Rio de Janeiro"),
+            ListItem(id="3", label="Belo Horizonte"),
+            ListItem(id="4", label="Brasília"),
+            ListItem(id="5", label="Salvador"),
+            ListItem(id="6", label="Fortaleza"),
+            ListItem(id="7", label="Curitiba"),
+            ListItem(id="8", label="Recife"),
+
+            # Segunda Pagina
+            ListItem(id="9", label="Porto Alegre"),
+            ListItem(id="10", label="Manaus"),
+            ListItem(id="11", label="Belém"),
+            ListItem(id="12", label="Goiânia"),
+            ListItem(id="13", label="Guarulhos"),
+            ListItem(id="14", label="Campinas"),
+            ListItem(id="15", label="São Luís"),
+            ListItem(id="16", label="Maceió"),
+
+            # Terceira Pagina
+            ListItem(id="17", label="Duque de Caxias"),
+            ListItem(id="18", label="Natal"),
+            ListItem(id="19", label="Teresina"),
+            ListItem(id="20", label="São Bernardo do Campo"),
+            ListItem(id="21", label="Nova Iguaçu"),
+            ListItem(id="22", label="Jaboatão dos Guararapes"),
+            ListItem(id="23", label="Osasco"),
+        ]
 ```
 
 ---

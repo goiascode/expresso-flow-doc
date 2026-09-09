@@ -213,6 +213,6 @@ Com o `WebflowBundle` registrado, acesse `http://localhost:8080/webflow` no nave
 
 ## Próximos passos
 
-- [Flows →](flows.md)
+- [Flows →](flow.md)
 - [Bundles →](bundles.md)
 - [Configuração →](configuration.md)

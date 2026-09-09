@@ -50,11 +50,25 @@ hide:
 
 === "CLI (Windows)"
 
+    Cria a pasta e baixa o executável, Terminal necessário: **PowerShell**
+
     ```powershell
-    # Cria a pasta e baixa o executável
+    # O comando abaixo deve ser executado em um terminal PowerShell, como Windows PowerShell 5.1 ou PowerShell 7+.
+    # Também pode ser executado pelo Windows Terminal ou terminal integrado do VS Code, desde que o perfil selecionado seja PowerShell.
+
     New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.local\bin"
     Invoke-WebRequest -Uri https://exflow.run/bin/windows/exflow.exe `
         -OutFile "$env:USERPROFILE\.local\bin\exflow.exe"
+    ```
+
+    **Outros Terminais**: (Bash — Linux / macOS / Git Bash / WSL).
+
+    Você pode usar mkdir + curl:
+
+    ```powershell
+    mkdir -p "$HOME/.local/bin"
+    curl -L https://exflow.run/bin/windows/exflow.exe \
+        -o "$HOME/.local/bin/exflow.exe"
     ```
 
     Verifique:

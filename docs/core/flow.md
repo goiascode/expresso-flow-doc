@@ -1,4 +1,4 @@
-# Flows
+# Flow
 
 Um **Flow** representa uma conversa completa com um usuário. É uma classe Python decorada com `@flow()` que organiza a lógica conversacional em **steps** numerados e sequenciais.
 
