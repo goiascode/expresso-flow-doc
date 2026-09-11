@@ -1,0 +1,297 @@
+/* Header */
+.md-header {
+    background-color: #ffffff;
+    color: var(--md-default-fg-color);
+}
+
+/* Nav links — destaque mais forte */
+.md-nav__link {
+  color: #222222 !important;
+}
+
+.md-nav__link:hover,
+.md-nav__link:focus {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.md-nav__link--active {
+  color: #1565c0 !important;
+  font-weight: 700;
+}
+
+/* Faixa (ribbon) de versão beta — canto superior direito */
+.beta-banner {
+  position: fixed;
+  top: 15px;
+  right: -48px;
+  width: 180px;
+  background: #ffc107;
+  color: #3e2700;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0.4rem 0;
+  transform: rotate(45deg);
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.beta-badge {
+  display: none;
+}
+
+.md-header__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Caixa de pesquisa — corrige texto/fundo invisíveis no header branco */
+.md-search__form {
+  background-color: #eeeeee;
+  color: #1a1a1a;
+}
+
+.md-search__form:hover,
+.md-search__form:focus-within {
+  background-color: #e0e0e0;
+}
+
+.md-search__input {
+  color: #1a1a1a;
+}
+
+.md-search__input::placeholder {
+  color: #666666;
+}
+
+.md-search__icon,
+.md-header .md-search__icon,
+.md-search__icon.md-icon {
+  color: #444444 !important;
+}
+
+.md-header__button.md-logo img {
+  width: auto;
+  height: 2.2rem;
+  position: relative;
+  top: 2px;
+}
+
+.md-header__button.md-logo {
+  margin-right: -1rem;
+}
+
+/* Barra de abas de navegação */
+.md-tabs {
+    background-color: #f0f0f0;
+    color: var(--md-default-fg-color);
+}
+
+.md-tabs__link {
+    color: #444444;
+    opacity: 1;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+    color: var(--md-primary-fg-color);
+}
+
+/* ── Tipografia estilo OpenAI docs ─────────────────────────── */
+:root {
+    --openai-font: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.md-typeset {
+    font-size: .6875rem;
+    /* 11px */
+    line-height: 1.75;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.006em;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+.md-typeset h1 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+.md-typeset h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-top: 2em;
+}
+
+.md-typeset h3 {
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+.md-typeset h4 {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Parágrafos e listas */
+.md-typeset p,
+.md-typeset li {
+    color: #1a1a1a;
+}
+
+/* Código inline */
+.md-typeset code {
+    font-size: .9em;
+    letter-spacing: 0;
+    background: #f2f2f2;
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-weight: 450;
+}
+
+/* Blocos de código */
+.md-typeset pre code {
+    font-size: .9em;
+    line-height: 1.65;
+    background: transparent;
+    padding: 0;
+}
+
+.md-typeset pre {
+    background: #f0f2f5 !important;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    box-shadow: none;
+}
+
+/* Pygments token colors — tema claro */
+.md-typeset .highlight .kn,
+.md-typeset .highlight .k,
+.md-typeset .highlight .kr,
+.md-typeset .highlight .kd {
+    color: #d73a49;
+}
+
+/* keywords */
+
+.md-typeset .highlight .nn {
+    color: #6f42c1;
+}
+
+/* namespace/module */
+.md-typeset .highlight .nc,
+.md-typeset .highlight .nf {
+    color: #005cc5;
+}
+
+/* class / function */
+.md-typeset .highlight .n,
+.md-typeset .highlight .nb,
+.md-typeset .highlight .vm {
+    color: #24292e;
+}
+
+/* names */
+
+.md-typeset .highlight .s,
+.md-typeset .highlight .s1,
+.md-typeset .highlight .s2 {
+    color: #032f62;
+}
+
+/* strings */
+
+.md-typeset .highlight .mi,
+.md-typeset .highlight .mf {
+    color: #005cc5;
+}
+
+/* numbers */
+
+.md-typeset .highlight .o {
+    color: #d73a49;
+}
+
+/* operators */
+.md-typeset .highlight .p {
+    color: #24292e;
+}
+
+/* punctuation */
+
+.md-typeset .highlight .c,
+.md-typeset .highlight .c1,
+.md-typeset .highlight .cm {
+    color: #6a737d;
+    font-style: italic;
+}
+
+/* comments */
+
+/* Linha destacada (anotações com # (1)!) */
+.md-typeset .highlight .hll {
+    display: block;
+    margin: 0px -4px;
+    padding: 0.3rem 0.5rem;
+    border-left: 4px solid #b5cefd;
+}
+
+/* Tabelas */
+.md-typeset table:not([class]) {
+    font-size: inherit;
+    border-collapse: collapse;
+}
+
+.md-typeset table:not([class]) th {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    background: #f7f7f7;
+}
+
+/* Hero section na home */
+.hero {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+}
+
+.hero h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color--light);
+    max-width: 640px;
+    margin: 0 auto 2rem;
+}
+
+/* Oculta o h1 gerado automaticamente na home */
+h1#expresso-flow {
+  display: none;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Cards de feature na home */
+.md-typeset .grid.cards>ul>li {
+    border-left: 3px solid var(--md-primary-fg-color);
+}
