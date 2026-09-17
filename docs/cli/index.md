@@ -1,53 +1,69 @@
 # Expresso Flow CLI
 
-A **CLI do Expresso Flow** (`exflow`) é uma ferramenta de linha de comando para criação, configuração, execução e build de projetos. Está disponível para **Windows**, **Linux** e **macOS** como binário independente — sem necessidade de Python instalado.
+A **CLI do Expresso Flow** (`exflow`) é a ferramenta oficial de linha de comando para criação, configuração, empacotamento, publicação e execução de projetos do framework. Está disponível para **Windows**, **Linux** e **macOS** como binário independente — sem necessidade de Python instalado.
 
 ---
 
-## Instalação
+## Instalação e Configuração
 
-Consulte a página de [Downloads](../downloads/index.md) para instalar o binário da sua plataforma.
+1. Consulte a página de [Downloads](../downloads/index.md) para obter o executável e o arquivo `config.yaml`.
+2. Baixe o `config.yaml` em [https://exflow.run/bin/config.yaml](https://exflow.run/bin/config.yaml) e mantenha-o no mesmo diretório do executável.
+3. Configure suas credenciais (`access_id`, `access_key`) e seu `host` conforme detalhado na página de [Configuração da CLI](configuration.md).
 
 ---
 
 ## Comandos disponíveis
 
+```text
+Usage:
+  exflow [command]
+```
+
 | Comando | Descrição |
 |---------|-----------|
-| [`exflow create`](commands/new.md) | Cria um novo projeto Expresso Flow |
-| [`exflow run`](commands/run.md) | Executa o projeto em modo desenvolvimento |
-| [`exflow build`](commands/build.md) | Prepara o projeto para produção |
-| [`exflow add`](commands/add.md) | Adiciona bundles, canais e pacotes ao projeto |
+| [`exflow add`](commands/add.md) | Operações de adição de pacotes e bundles |
+| [`exflow build`](commands/build.md) | Empacota o projeto atual em um arquivo `.pkg` |
+| [`exflow config`](commands/config.md) | Gerencia a configuração do Expresso Flow |
+| [`exflow create`](commands/new.md) | Operações de criação de projetos |
+| [`exflow download`](commands/download.md) | Baixa um arquivo temporário pelo UUID na pasta atual |
+| [`exflow publish`](commands/publish.md) | Publica o pacote `.pkg` via link temporário |
+| [`exflow run`](commands/run.md) | Inicia o daemon do Expresso Flow (conecta ao Router e WhatsApp) |
+| `exflow version` | Exibe a versão do exflow |
+| `exflow help` | Exibe ajuda sobre qualquer comando |
+
+---
+
+## Flags globais
+
+| Flag | Descrição |
+|------|-----------|
+| `--config string` | Caminho para o arquivo de configuração (padrão: `"config.yaml"`) |
+| `-h, --help` | Ajuda sobre o comando |
 
 ---
 
 ## Uso básico
 
 ```bash
-# Criar novo projeto
+# 1. Verificar versão
+exflow version
+
+# 2. Criar novo projeto
 exflow create project --name meu-projeto
 
-# Entrar na pasta e executar
-cd meu-projeto
+# 3. Iniciar o daemon (requer config.yaml na mesma pasta ou via --config)
 exflow run
 
-# Adicionar um bundle
-exflow add webflow
+# 4. Empacotar o projeto em .pkg
+exflow build
+
+# 5. Publicar o pacote com link temporário
+exflow publish meu-projeto.pkg
 ```
 
 ---
 
-## Versão e ajuda
-
-```bash
-exflow --version
-exflow --help
-exflow <comando> --help
-```
-
----
-
-## Seções desta documentação
+## Seções da documentação da CLI
 
 <div class="grid cards" markdown>
 
@@ -55,20 +71,24 @@ exflow <comando> --help
 
     Download e configuração do binário por plataforma.
 
+- :material-cog: **[Configuração (config.yaml)](configuration.md)**
+
+    Credenciais de acesso, configuração de host e integração com WhatsApp.
+
 - :material-plus-box: **[exflow create](commands/new.md)**
 
     Cria a estrutura completa de um novo projeto.
 
 - :material-play: **[exflow run](commands/run.md)**
 
-    Executa o projeto com hot-reload e logs em tempo real.
+    Inicia o daemon e o túnel com o Router e WhatsApp.
 
 - :material-package-variant-plus: **[exflow add](commands/add.md)**
 
     Adiciona pacotes e bundles ao projeto existente.
 
-- :material-hammer-wrench: **[exflow build](commands/build.md)**
+- :material-archive-arrow-up: **[exflow build & publish](commands/build.md)**
 
-    Empacota o projeto para deploy em produção.
+    Empacota em `.pkg` e publica links temporários de distribuição.
 
 </div>

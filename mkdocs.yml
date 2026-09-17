@@ -156,12 +156,16 @@ nav:
   - CLI:
     - cli/index.md
     - Instalação: cli/installation.md
+    - Configuração: cli/configuration.md
     - Comandos:
       - cli/commands/index.md
-      - exflow create: cli/commands/new.md
-      - exflow run: cli/commands/run.md
-      - exflow build: cli/commands/build.md
       - exflow add: cli/commands/add.md
+      - exflow build: cli/commands/build.md
+      - exflow config: cli/commands/config.md
+      - exflow create: cli/commands/new.md
+      - exflow download: cli/commands/download.md
+      - exflow publish: cli/commands/publish.md
+      - exflow run: cli/commands/run.md
   - WebFlow:
     - webflow/index.md
     - Instalação: webflow/installation.md

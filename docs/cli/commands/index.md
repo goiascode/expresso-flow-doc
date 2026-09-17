@@ -1,27 +1,41 @@
 # Referência de Comandos
 
-Referência completa de todos os comandos da CLI `exflow`.
+Referência completa de todos os comandos disponíveis na CLI `exflow`.
 
 ---
 
-## Visão geral
+## Uso
 
+```text
+exflow [command]
 ```
-exflow [COMANDO] [SUB-COMANDO] [OPÇÕES]
-```
+
+## Comandos disponíveis
 
 | Comando | Descrição |
-|---------|----------|
-| [`create project`](new.md) | Cria um novo projeto |
-| [`run`](run.md) | Executa o projeto em modo desenvolvimento |
-| [`build`](build.md) | Gera artefato de produção |
-| [`add`](add.md) | Adiciona pacotes/bundles ao projeto |
+|---------|-----------|
+| [`add`](add.md) | Operações de adição (pacotes, bundles, canais) |
+| [`build`](build.md) | Empacota o projeto atual em um arquivo `.pkg` |
+| [`config`](config.md) | Gerencia a configuração do Expresso Flow |
+| [`create`](new.md) | Operações de criação de projetos e componentes |
+| [`download`](download.md) | Baixa um arquivo temporário pelo UUID na pasta atual |
+| `help` | Exibe ajuda sobre qualquer comando |
+| [`publish`](publish.md) | Publica o pacote `.pkg` via link temporário |
+| [`run`](run.md) | Inicia o daemon do Expresso Flow |
+| `version` | Exibe a versão instalada da CLI |
 
 ---
 
-## Opções globais
+## Flags globais
 
-| Opção | Descrição |
-|-------|-----------|
-| `--version` | Exibe a versão instalada da CLI |
-| `--help` | Exibe a ajuda do comando |
+| Flag | Tipo | Padrão | Descrição |
+|------|------|--------|-----------|
+| `--config` | `string` | `"config.yaml"` | Caminho para o arquivo de configuração |
+| `-h, --help` | — | — | Ajuda sobre o comando do exflow |
+
+---
+
+## Próximos passos
+
+* [Configuração do `config.yaml`](../configuration.md)
+* [Instalação da CLI](../installation.md)

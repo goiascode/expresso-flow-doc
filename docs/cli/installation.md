@@ -6,19 +6,20 @@ A CLI do Expresso Flow é distribuída como um **binário independente**, sem ne
 
 ## Download
 
-Consulte a página de [Downloads](../downloads/index.md) para todos os links de download ou use os comandos abaixo:
+Consulte a página de [Downloads](../downloads/index.md) para todos os links de download ou use os comandos abaixo para baixar o executável e o arquivo de configuração `config.yaml`:
 
 === ":fontawesome-brands-apple: macOS"
 
     ```bash
     curl -L https://exflow.run/bin/macos/exflow -o /usr/local/bin/exflow
     chmod +x /usr/local/bin/exflow
+    curl -L https://exflow.run/bin/config.yaml -o /usr/local/bin/config.yaml
     ```
 
     Verifique a instalação:
 
     ```bash
-    exflow --version
+    exflow version
     ```
 
 === ":fontawesome-brands-linux: Linux"
@@ -26,45 +27,38 @@ Consulte a página de [Downloads](../downloads/index.md) para todos os links de 
     ```bash
     curl -L https://exflow.run/bin/linux/exflow -o /usr/local/bin/exflow
     chmod +x /usr/local/bin/exflow
+    curl -L https://exflow.run/bin/config.yaml -o /usr/local/bin/config.yaml
     ```
 
     Verifique a instalação:
 
     ```bash
-    exflow --version
+    exflow version
     ```
 
 === ":fontawesome-brands-windows: Windows"
 
     1. Baixe o executável em [https://exflow.run/bin/windows/exflow.exe](https://exflow.run/bin/windows/exflow.exe)
-    2. Crie uma pasta dedicada, por exemplo `C:\exflow\bin`, e mova o `exflow.exe` para lá
-    3. Adicione essa pasta ao **PATH do sistema** para que o `exflow` possa ser executado de qualquer diretório:
-
-        **Via interface gráfica:**
-
-        - Abra **Painel de Controle → Sistema → Configurações avançadas do sistema → Variáveis de Ambiente**
-        - Em **Variáveis do sistema**, selecione `Path` e clique em **Editar**
-        - Clique em **Novo** e adicione o caminho `C:\exflow\bin`
-        - Confirme com **OK** em todas as janelas
-
-        **Via PowerShell (como Administrador):**
+    2. Baixe o arquivo de configuração em [https://exflow.run/bin/config.yaml](https://exflow.run/bin/config.yaml)
+    3. Crie uma pasta dedicada (por exemplo `$env:USERPROFILE\.local\bin`) e mova o `exflow.exe` e o `config.yaml` para lá.
+    4. Adicione essa pasta ao **PATH**:
 
         ```powershell
         [System.Environment]::SetEnvironmentVariable(
             "PATH",
-            "$([System.Environment]::GetEnvironmentVariable('PATH','Machine'));C:\exflow\bin",
-            "Machine"
+            "$env:USERPROFILE\.local\bin;" + [System.Environment]::GetEnvironmentVariable("PATH", "User"),
+            "User"
         )
         ```
 
-    4. Feche e reabra o terminal, depois verifique:
+    5. Feche e reabra o terminal, depois verifique:
 
     ```powershell
-    exflow --version
+    exflow version
     ```
 
-    !!! tip "Por que configurar o PATH?"
-        Com o `exflow` no PATH, você pode abrir o terminal em qualquer pasta do seu computador e executar `exflow create project --name meu-projeto` diretamente, sem precisar navegar até onde o executável está salvo.
+!!! important "Configuração do config.yaml"
+    Para utilizar o comando `exflow run` e iniciar o daemon local integrado ao WhatsApp, é necessário preencher suas credenciais (`access_id`, `access_key`) e personalizar o `host` dentro do `config.yaml`. Consulte a [página de Configuração](configuration.md) para o guia completo.
 
 ---
 
@@ -76,5 +70,6 @@ Para atualizar para a versão mais recente, repita o comando de download acima. 
 
 ## Próximos passos
 
-- [exflow create →](commands/new.md)
-- [exflow run →](commands/run.md)
+* [Configuração da CLI (`config.yaml`) →](configuration.md)
+* [exflow run (Iniciar o daemon) →](commands/run.md)
+* [exflow create →](commands/new.md)

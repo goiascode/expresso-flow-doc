@@ -5,17 +5,21 @@ hide:
 
 # Downloads — Expresso Flow CLI
 
-Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter Python instalado.
+Baixe o binário da CLI para o seu sistema operacional e o arquivo de configuração `config.yaml`. Não é necessário ter Python instalado.
 
 ---
 
 ## Versão atual
 
-| Plataforma | Arquivo | Link |
-|------------|---------|------|
+| Plataforma / Arquivo | Arquivo | Link |
+|----------------------|---------|------|
 | :fontawesome-brands-windows: Windows | `exflow.exe` | [:material-download: Download](https://exflow.run/bin/windows/exflow.exe) |
 | :fontawesome-brands-linux: Linux | `exflow` | [:material-download: Download](https://exflow.run/bin/linux/exflow) |
 | :fontawesome-brands-apple: macOS | `exflow` | [:material-download: Download](https://exflow.run/bin/macos/exflow) |
+| :material-file-cog: Configuração | `config.yaml` | [:material-download: Download](https://exflow.run/bin/) |
+
+!!! important "exflow e config.yaml na mesma pasta"
+    O arquivo `config.yaml` deve ficar na mesma pasta do executável `exflow` (ou onde ele for executado). Ele é obrigatório para autenticar seu acesso e iniciar o daemon via `exflow run`. Consulte a página de [Configuração da CLI](../cli/configuration.md) para saber mais.
 
 ---
 
@@ -30,10 +34,16 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
     chmod +x /usr/local/bin/exflow
     ```
 
+    ### Baixar o config.yaml
+
+    ```bash
+    curl -L https://exflow.run/bin/config.yaml -o /usr/local/bin/config.yaml
+    ```
+
     ### Verificar instalação
 
     ```bash
-    exflow --version
+    exflow version
     ```
 
     !!! warning "Gatekeeper (macOS)"
@@ -54,10 +64,16 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
     chmod +x /usr/local/bin/exflow
     ```
 
+    ### Baixar o config.yaml
+
+    ```bash
+    curl -L https://exflow.run/bin/config.yaml -o /usr/local/bin/config.yaml
+    ```
+
     ### Verificar instalação
 
     ```bash
-    exflow --version
+    exflow version
     ```
 
     !!! tip "Sem permissão em `/usr/local/bin`?"
@@ -65,6 +81,7 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
 
         ```bash
         curl -L https://exflow.run/bin/linux/exflow -o ~/.local/bin/exflow
+        curl -L https://exflow.run/bin/config.yaml -o ~/.local/bin/config.yaml
         chmod +x ~/.local/bin/exflow
         echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
         source ~/.bashrc
@@ -75,19 +92,22 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
     ### Download direto
 
     [:material-download: Baixar exflow.exe](https://exflow.run/bin/windows/exflow.exe){ .md-button .md-button--primary }
+    [:material-file-cog: Baixar config.yaml](https://exflow.run/bin/){ .md-button }
 
     ### Via PowerShell
 
     ```powershell
-    # Cria a pasta e baixa o executável
-    New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.exflow\bin"
+    # Cria a pasta e baixa o executável e a configuração
+    New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.local\bin"
     Invoke-WebRequest -Uri https://exflow.run/bin/windows/exflow.exe `
-        -OutFile "$env:USERPROFILE\.exflow\bin\exflow.exe"
+        -OutFile "$env:USERPROFILE\.local\bin\exflow.exe"
+    Invoke-WebRequest -Uri https://exflow.run/bin/config.yaml `
+        -OutFile "$env:USERPROFILE\.local\bin\config.yaml"
 
     # Adiciona ao PATH do usuário (permanente)
     [System.Environment]::SetEnvironmentVariable(
         "PATH",
-        "$env:USERPROFILE\.exflow\bin;$([System.Environment]::GetEnvironmentVariable('PATH','User'))",
+        "$env:USERPROFILE\.local\bin;$([System.Environment]::GetEnvironmentVariable('PATH','User'))",
         "User"
     )
     ```
@@ -95,17 +115,16 @@ Baixe o binário da CLI para o seu sistema operacional. Não é necessário ter 
     Feche e reabra o terminal, depois verifique:
 
     ```powershell
-    exflow --version
+    exflow version
     ```
 
     !!! tip "Por que configurar o PATH?"
-        Com o `exflow` no PATH você pode abrir o terminal em qualquer pasta e executar
-        `exflow create project --name meu-projeto` diretamente, sem precisar navegar
-        até onde o executável está salvo.
+        Com o `exflow` no PATH você pode abrir o terminal em qualquer pasta e executar comandos diretamente, sem precisar navegar até onde o executável está salvo.
 
 ---
 
 ## Próximos passos
 
-- [CLI — Introdução →](../cli/index.md)
-- [exflow create →](../cli/commands/new.md)
+* [Configuração do `config.yaml` (autenticação e WhatsApp)](../cli/configuration.md)
+* [CLI — Introdução →](../cli/index.md)
+* [exflow run — Iniciar daemon →](../cli/commands/run.md)

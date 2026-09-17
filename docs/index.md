@@ -99,6 +99,13 @@ hide:
         ```
         Feche e reabra o terminal após executar.
 
+!!! note "Observação"
+    Caso precise alterar a pasta do **exflow**:
+
+    * **Mover após a instalação**: Colete o executável `exflow` na pasta padrão (`.local/bin`), mova-o para o diretório desejado e depois atualize o `PATH` com o novo caminho.
+    * **Definir antes de criar o PATH**: Ou já insira/baixe o executável diretamente na pasta escolhida antes de criar e configurar a variável `PATH`.
+    * **Arquivo de configuração (`config.yaml`)**: O `config.yaml` deve ficar sempre na mesma pasta do executável `exflow`. Ele pode ser baixado em [https://exflow.run/bin/](https://exflow.run/bin/) e é indispensável para autenticar e rodar o daemon `exflow run` (saiba mais no [Guia de Configuração da CLI](cli/configuration.md)).
+
 ---
 
 ## Hello World
