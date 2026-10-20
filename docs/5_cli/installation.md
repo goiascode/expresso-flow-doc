@@ -1,6 +1,9 @@
 # Instalação da CLI
 
-A CLI do Expresso Flow é distribuída como um **binário independente**, sem necessidade de Python instalado na máquina.
+A CLI do Expresso Flow é distribuída como um **binário independente**, sem necessidade de Python instalado na máquina para sua própria execução.
+
+!!! info "Desenvolvimento de projetos"
+    Embora o binário do `exflow` seja independente, os projetos e fluxos gerados e executados por ele utilizam Python. Certifique-se de ter o **Python 3.12 ou superior** instalado para executar seus projetos ([ver tutorial](../2_getting_started/installation.md#instalacao-python)).
 
 ---
 
@@ -13,24 +16,43 @@ Consulte a página de [Downloads](../3_downloads/index.md) para todos os links d
     ```bash
     curl -L https://exflow.run/bin/macos/exflow -o /usr/local/bin/exflow
     chmod +x /usr/local/bin/exflow
+    ```
+
+    ### Baixar o config.yaml
+
+    ```bash
     curl -L https://exflow.run/bin/config.yaml -o /usr/local/bin/config.yaml
     ```
 
-    Verifique a instalação:
+    ### Verificar instalação
 
     ```bash
     exflow version
     ```
+
+    !!! warning "Gatekeeper (macOS)"
+        Na primeira execução, o macOS pode exibir um aviso de segurança. Para autorizar:
+
+        ```bash
+        xattr -d com.apple.quarantine /usr/local/bin/exflow
+        ```
+
+        Ou acesse **Preferências do Sistema → Segurança e Privacidade → Geral** e clique em **Permitir mesmo assim**.
 
 === ":fontawesome-brands-linux: Linux"
 
     ```bash
     curl -L https://exflow.run/bin/linux/exflow -o /usr/local/bin/exflow
     chmod +x /usr/local/bin/exflow
+    ```
+
+    ### Baixar o config.yaml
+
+    ```bash
     curl -L https://exflow.run/bin/config.yaml -o /usr/local/bin/config.yaml
     ```
 
-    Verifique a instalação:
+    ### Verificar instalação
 
     ```bash
     exflow version

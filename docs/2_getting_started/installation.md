@@ -1,13 +1,115 @@
 # Instalação
 
-## Pré-requisitos
-
-- **Python 3.12 ou superior** — [python.org/downloads](https://www.python.org/downloads/)
-- **pip 23+** — atualizado automaticamente com versões recentes do Python
+O **Expresso Flow** é um framework construído em Python 3.12. Para desenvolver e executar seus fluxos, é necessário ter o interpretador Python instalado e configurado no sistema antes de prosseguir com a instalação do framework.
 
 ---
 
-## Core — `exflow`
+## 1. Pré-requisito: Instalando o Python 3.12+ {: #instalacao-python }
+
+Antes de instalar o Expresso Flow, certifique-se de que o **Python 3.12 ou superior** está instalado e configurado no `PATH` do seu sistema operacional.
+
+### Verificar se o Python já está instalado
+
+Abra o terminal e execute:
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    python --version
+    ```
+
+=== "Linux / macOS"
+
+    ```bash
+    python3 --version
+    ```
+
+* Se a saída for **Python 3.12.x** (ou superior), seu ambiente já atende ao requisito e você pode pular diretamente para a [Instalação do Core](#2-core-exflow).
+* Se a versão for inferior a 3.12 ou o comando não for reconhecido, siga o tutorial abaixo para o seu sistema:
+
+### Tutorial de Instalação por Sistema Operacional
+
+=== ":fontawesome-brands-windows: Windows"
+
+    1. **Download do Instalador**:
+        Acesse a página oficial em [python.org/downloads/windows](https://www.python.org/downloads/windows/) e baixe o instalador do **Python 3.12+** (*Windows installer 64-bit*).
+        
+        *(Opcional via terminal)* Se você utiliza o Windows Package Manager:
+        ```powershell
+        winget install Python.Python.3.12
+        ```
+
+    2. **Atenção na primeira tela do Instalador (Crucial)**:
+        Ao abrir o executável de instalação:
+        
+        !!! danger "Obrigatório: Marcar 'Add python.exe to PATH'"
+            Na primeira janela do instalador, **habilite obrigatoriamente a caixa de seleção**:  
+            :white_check_mark: **Add python.exe to PATH**  
+            Sem essa opção marcada, o terminal não reconhecerá os comandos `python` e `pip`.
+
+    3. **Concluir a instalação**:
+        Clique em **Install Now**. Ao término, se for apresentada a opção **"Disable path length limit"**, clique nela para desativar a limitação de caracteres no tamanho de caminhos do Windows.
+
+    4. **Validar no terminal**:
+        Feche e abra novamente o **PowerShell** e confirme:
+        ```powershell
+        python --version
+        pip --version
+        ```
+
+=== ":fontawesome-brands-apple: macOS"
+
+    1. **Via Homebrew (Recomendado)**:
+        Se você já usa o gerenciador [Homebrew](https://brew.sh), basta executar:
+        ```bash
+        brew install python@3.12
+        ```
+
+    2. **Via Instalador Oficial**:
+        Acesse [python.org/downloads/macos](https://www.python.org/downloads/macos/) e faça o download do pacote oficial `.pkg` do Python 3.12+. Abra o arquivo baixado e siga as orientações do assistente.
+
+    3. **Validar no terminal**:
+        Abra o Terminal e confirme:
+        ```bash
+        python3 --version
+        pip3 --version
+        ```
+
+=== ":fontawesome-brands-linux: Linux"
+
+    A maioria das distribuições modernas disponibiliza o Python 3.12 nos repositórios oficiais:
+
+    **Ubuntu 24.04 LTS / Debian 13+**:
+    ```bash
+    sudo apt update
+    sudo apt install -y python3 python3-pip python3-venv
+    ```
+
+    **Ubuntu 22.04 LTS (via PPA Deadsnakes)**:
+    ```bash
+    sudo add-apt-repository ppa:deadsnakes/ppa -y
+    sudo apt update
+    sudo apt install -y python3.12 python3.12-venv python3.12-dev python3-pip
+    ```
+
+    **Fedora 39+ / RHEL / CentOS**:
+    ```bash
+    sudo dnf install -y python3.12 python3-pip
+    ```
+
+    **Arch Linux**:
+    ```bash
+    sudo pacman -S python python-pip
+    ```
+
+    **Validar no terminal**:
+    ```bash
+    python3 --version
+    ```
+
+---
+
+## 2. Core — `exflow`
 
 O pacote principal do framework é instalado via **pip** a partir do repositório oficial:
 
@@ -54,7 +156,7 @@ pip install -r requirements.txt
 
 ---
 
-## Bundles adicionais
+## 3. Bundles adicionais
 
 Os bundles ampliam o core com canais e ferramentas. Todos são instalados pelo mesmo repositório:
 
@@ -72,7 +174,7 @@ pip install --index-url https://exflow.run/simple <NOME_DO_PACOTE>
 
 ---
 
-## CLI — `exflow`
+## 4. CLI — `exflow`
 
 A CLI é distribuída como um binário independente (sem necessidade de Python instalado) para cada plataforma.
 

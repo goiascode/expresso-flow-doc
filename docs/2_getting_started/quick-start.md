@@ -2,6 +2,9 @@
 
 Siga este guia para ter um projeto Expresso Flow funcionando em menos de 5 minutos.
 
+!!! note "Pré-requisito essencial: Python 3.12+"
+    Antes de começar, certifique-se de ter o interpretador **Python 3.12 ou superior** configurado no terminal (`python --version` ou `python3 --version`). Se ainda não possui, consulte o [Tutorial de Instalação do Python](installation.md#instalacao-python).
+
 ---
 
 ## Opção 1 — Com a CLI (recomendado)

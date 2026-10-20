@@ -5,7 +5,13 @@ hide:
 
 # Downloads — Expresso Flow CLI
 
-Baixe o binário da CLI para o seu sistema operacional e o arquivo de configuração `config.yaml`. Não é necessário ter Python instalado.
+Baixe o binário da CLI para o seu sistema operacional e o arquivo de configuração `config.yaml`.
+
+!!! warning "Atenção: Pré-requisito para desenvolvimento dos fluxos"
+    A ferramenta **CLI (`exflow`)** é compilada como um binário nativo independente e não necessita do Python para ser executada no terminal.
+    
+    No entanto, os **projetos e fluxos criados por ela são em Python**. Portanto, para desenvolver, instalar dependências e executar seus fluxos (`python main.py`), é **obrigatório possuir o Python 3.12 ou superior** instalado na máquina antes de seguir adiante.  
+    [:material-arrow-right: Acesse o Tutorial de Instalação do Python 3.12+](../2_getting_started/installation.md#instalacao-python){ .md-button }
 
 ---
 
@@ -125,6 +131,7 @@ Baixe o binário da CLI para o seu sistema operacional e o arquivo de configura�
 
 ## Próximos passos
 
+* [Tutorial de Instalação do Python 3.12+ e Core](../2_getting_started/installation.md#instalacao-python)
 * [Configuração do `config.yaml` (autenticação e WhatsApp)](../5_cli/configuration.md)
 * [CLI — Introdução →](../5_cli/index.md)
 * [exflow run — Iniciar daemon →](../5_cli/commands/run.md)

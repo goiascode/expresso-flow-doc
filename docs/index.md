@@ -27,7 +27,14 @@ hide:
 
 ## Instale em segundos
 
+!!! warning "Pré-requisito obrigatório: Python 3.12+"
+    O **Expresso Flow** requer **Python 3.12 ou superior** instalado na máquina para criar e executar fluxos.  
+    Verifique no seu terminal: `python --version` (Windows) ou `python3 --version` (Linux/macOS).  
+    Ainda não possui? Siga o [Tutorial de Instalação do Python 3.12+ →](2_getting_started/installation.md#instalacao-python).
+
 === "pip"
+
+    Instalação direta do core via pip:
 
     ```bash
     pip install --index-url https://exflow.run/simple exflow

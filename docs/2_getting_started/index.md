@@ -12,7 +12,7 @@ Esta seção vai guiá-lo do zero até o seu primeiro fluxo funcionando.
 
 - :material-download: **1. Instalação**
 
-    Instale o core do framework e, opcionalmente, a CLI para gerenciar seus projetos.
+    Instale o Python 3.12+, o core do framework e, opcionalmente, a CLI para gerenciar seus projetos.
 
     [Instalação →](installation.md)
 
@@ -34,10 +34,16 @@ Esta seção vai guiá-lo do zero até o seu primeiro fluxo funcionando.
 
 ## Pré-requisitos
 
-| Requisito | Versão mínima |
-|-----------|--------------|
-| Python | 3.12+ |
-| pip | 23.0+ |
+| Requisito | Versão mínima | Finalidade |
+|-----------|--------------|------------|
+| **Python** | 3.12+ | Interpretador obrigatório para execução dos fluxos |
+| **pip** | 23.0+ | Gerenciador de pacotes Python |
+
+!!! warning "Requisito obrigatório: Python 3.12+"
+    O Expresso Flow requer **Python 3.12 ou superior** instalado antes de prosseguir com qualquer instalação ou comando do framework.
+    
+    Ainda não possui o Python 3.12+ configurado no seu sistema operacional?  
+    [:material-arrow-right: Acesse o Tutorial de Instalação do Python 3.12+](installation.md#instalacao-python){ .md-button .md-button--primary }
 
 !!! tip "Gerenciadores de ambiente virtual"
     Recomendamos o uso de [`venv`](https://docs.python.org/3/library/venv.html) ou [`uv`](https://github.com/astral-sh/uv) para isolar as dependências do projeto.
