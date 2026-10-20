@@ -77,7 +77,7 @@ async def responder_unidade(self, ctx: InteractionContext, params: StepOptions):
 
     # Usuário selecionou uma unidade válida
     self.session.set_str("UNIDADE_ID", escolha)
-    self.session.set_int("PAGINA_UNIDADES_OFFSET", 0) # Reset do offset
+    self.session.set_int("PAGINA_UNIDADES_OFFSET", 0)  # Reset do offset
     return GoToStepFlowAction(step=CinEnumSteps.CONFIRMAR_DADOS)
     
 ```
