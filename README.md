@@ -42,14 +42,14 @@ Os arquivos estáticos são gerados em `./site/`.
 ```
 docs/
 ├── index.md                    # Página inicial
-├── getting-started/            # Instalação, Quick Start, Primeiro Fluxo
-├── downloads/                  # Downloads da CLI por plataforma
-├── core/                       # Documentação do Core (ExpressoFlow)
+├── 2_getting_started/          # Instalação, Quick Start, Primeiro Fluxo
+├── 3_downloads/                # Downloads da CLI por plataforma
+├── 4_expresso_flow/            # Documentação do Core (ExpressoFlow)
 │   └── channels/               # Canais (WhatsApp, Telegram, ChatWeb)
-├── cli/                        # CLI (exflow)
+├── 5_cli/                      # CLI (exflow)
 │   └── commands/               # Referência de comandos
-├── webflow/                    # Bundle WebFlow
-├── api/                        # Referência de API
+├── 6_webflow/                  # Bundle WebFlow
+├── 7_referencia_api/           # Referência de API
 └── changelog.md
 ```
 

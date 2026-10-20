@@ -117,66 +117,74 @@ extra_javascript:
 nav:
   - Home: index.md
   - Começando:
-    - getting-started/index.md
-    - Instalação: getting-started/installation.md
-    - Quick Start: getting-started/quick-start.md
-    - Primeiro Fluxo: getting-started/first-flow.md
-  - Downloads: downloads/index.md
+    - 2_getting_started/index.md
+    - Instalação: 2_getting_started/installation.md
+    - Quick Start: 2_getting_started/quick-start.md
+    - Primeiro Fluxo: 2_getting_started/first-flow.md
+  - Downloads: 3_downloads/index.md
   - ExpressoFlow:
-    - core/index.md
-    - Bootstrap: core/bootstrap.md
-    - Bundles: core/bundles.md
+    - 4_expresso_flow/index.md
+    - Bootstrap: 4_expresso_flow/bootstrap.md
+    - Bundles: 4_expresso_flow/bundles.md
     - Flows:
         - Flow:
-            - core/flow.md
-            - Session: core/session.md
-            - Steps: core/steps.md
-            - Execution Actions: core/actions.md
+            - 4_expresso_flow/flow.md
+            - Session: 4_expresso_flow/session.md
+            - Steps: 4_expresso_flow/steps.md
+            - Execution Actions: 4_expresso_flow/actions.md
         - MetaFlow:
-            - core/metaflow/index.md
-            - Model: core/metaflow/model.md
-            - Fields: core/metaflow/fields.md
-            - Validators: core/metaflow/validators.md
-            - Resolvers: core/metaflow/resolvers.md
-            - Steps: core/metaflow/steps.md
-            - Exemplo completo: core/metaflow/example.md
+            - 4_expresso_flow/metaflow/index.md
+            - Model: 4_expresso_flow/metaflow/model.md
+            - Fields: 4_expresso_flow/metaflow/fields.md
+            - Validators: 4_expresso_flow/metaflow/validators.md
+            - Resolvers: 4_expresso_flow/metaflow/resolvers.md
+            - Steps: 4_expresso_flow/metaflow/steps.md
+            - Exemplo completo: 4_expresso_flow/metaflow/example.md
         - Provider:
-            - Provider (exemplo): core/provider.md
-    - InteractionContext:
-      - Message: core/interaction/message.md
-      - Output: core/interaction/output.md
-      - Console: core/interaction/console.md
-      - Media: core/interaction/media.md
+            - Provider (exemplo): 4_expresso_flow/provider.md
+        - InteractionContext:
+            - 4_expresso_flow/interaction/message.md
+            - 4_expresso_flow/interaction/output.md
+            - 4_expresso_flow/interaction/console.md
+            - 4_expresso_flow/interaction/media.md
+        - Paginator List:
+            - 4_expresso_flow/paginator/paginator.md
+        - Texto Inteligente:
+            - 4_expresso_flow/intelligent_text/comparador_textual.md
+        - Tests:
+            - 4_expresso_flow/tests/tests_mock.md
+        - Tratamento de Falhas:
+            - 4_expresso_flow/tratamento_falhas/step_safe.md
     - Canais:
-      - core/channels/index.md
-      - WhatsApp: core/channels/whatsapp.md
-      - WebFlow: webflow/index.md
-    - Configuração: core/configuration.md
-    - Pacotes e Agentes: core/packages.md
+      - 4_expresso_flow/channels/index.md
+      - WhatsApp: 4_expresso_flow/channels/whatsapp.md
+      - WebFlow: 6_webflow/index.md
+    - Configuração: 4_expresso_flow/configuration.md
+    - Pacotes e Agentes: 4_expresso_flow/packages.md
   - CLI:
-    - cli/index.md
-    - Instalação: cli/installation.md
-    - Configuração: cli/configuration.md
+    - 5_cli/index.md
+    - Instalação: 5_cli/installation.md
+    - Configuração: 5_cli/configuration.md
     - Comandos:
-      - cli/commands/index.md
-      - exflow add: cli/commands/add.md
-      - exflow build: cli/commands/build.md
-      - exflow config: cli/commands/config.md
-      - exflow create: cli/commands/new.md
-      - exflow download: cli/commands/download.md
-      - exflow publish: cli/commands/publish.md
-      - exflow run: cli/commands/run.md
+      - 5_cli/commands/index.md
+      - exflow add: 5_cli/commands/add.md
+      - exflow build: 5_cli/commands/build.md
+      - exflow config: 5_cli/commands/config.md
+      - exflow create: 5_cli/commands/new.md
+      - exflow download: 5_cli/commands/download.md
+      - exflow publish: 5_cli/commands/publish.md
+      - exflow run: 5_cli/commands/run.md
   - WebFlow:
-    - webflow/index.md
-    - Instalação: webflow/installation.md
-    - Configuração: webflow/configuration.md
-    - Interface: webflow/interface.md
-    - Depuração: webflow/debugging.md
+    - 6_webflow/index.md
+    - Instalação: 6_webflow/installation.md
+    - Configuração: 6_webflow/configuration.md
+    - Interface: 6_webflow/interface.md
+    - Depuração: 6_webflow/debugging.md
   - Referência de API:
-    - api/index.md
-    - exflow.application.bootstrap: api/expresso-flow.md
-    - exflow.flow: api/flow.md
-    - exflow.interaction: api/step.md
-    - exflow.execution_action: api/bundle.md
-    - exflow.application.bundle: api/channel.md
+    - 7_referencia_api/index.md
+    - exflow.application.bootstrap: 7_referencia_api/expresso-flow.md
+    - exflow.flow: 7_referencia_api/flow.md
+    - exflow.interaction: 7_referencia_api/step.md
+    - exflow.execution_action: 7_referencia_api/bundle.md
+    - exflow.application.bundle: 7_referencia_api/channel.md
   - Changelog: changelog.md

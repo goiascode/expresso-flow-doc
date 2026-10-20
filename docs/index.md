@@ -16,8 +16,8 @@ hide:
 
 <div class="hero-buttons" markdown>
 
-[Começar agora](getting-started/quick-start.md){ .md-button .md-button--primary }
-[Ver exemplos](getting-started/first-flow.md){ .md-button }
+[Começar agora](2_getting_started/quick-start.md){ .md-button .md-button--primary }
+[Ver exemplos](2_getting_started/first-flow.md){ .md-button }
 
 </div>
 
@@ -104,7 +104,7 @@ hide:
 
     * **Mover após a instalação**: Colete o executável `exflow` na pasta padrão (`.local/bin`), mova-o para o diretório desejado e depois atualize o `PATH` com o novo caminho.
     * **Definir antes de criar o PATH**: Ou já insira/baixe o executável diretamente na pasta escolhida antes de criar e configurar a variável `PATH`.
-    * **Arquivo de configuração (`config.yaml`)**: O `config.yaml` deve ficar sempre na mesma pasta do executável `exflow`. Ele pode ser baixado em [https://exflow.run/bin/](https://exflow.run/bin/) e é indispensável para autenticar e rodar o daemon `exflow run` (saiba mais no [Guia de Configuração da CLI](cli/configuration.md)).
+    * **Arquivo de configuração (`config.yaml`)**: O `config.yaml` deve ficar sempre na mesma pasta do executável `exflow`. Ele pode ser baixado em [https://exflow.run/bin/](https://exflow.run/bin/) e é indispensável para autenticar e rodar o daemon `exflow run` (saiba mais no [Guia de Configuração da CLI](5_cli/configuration.md)).
 
 ---
 
@@ -136,7 +136,7 @@ class SaudacaoFlow(Flow):
 | Módulo | Descrição | Instalação |
 |--------|-----------|------------|
 | **Core** (`exflow`) | Motor principal de fluxos | `pip install exflow` |
-| **CLI** (`exflow`) | Scaffolding, execução e build via terminal | [Download](downloads/index.md) |
+| **CLI** (`exflow`) | Scaffolding, execução e build via terminal | [Download](3_downloads/index.md) |
 | **WebFlow** (`exflow-webflow`) | Interface web para debug local | `pip install exflow-webflow` |
 
 ---

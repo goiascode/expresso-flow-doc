@@ -2,218 +2,234 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://exflow.run/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
          <loc>https://exflow.run/changelog/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/api/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/2_getting_started/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/api/bundle/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/2_getting_started/first-flow/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/api/channel/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/2_getting_started/installation/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/api/expresso-flow/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/2_getting_started/quick-start/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/api/flow/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/3_downloads/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/api/step/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/actions/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/configuration/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/bootstrap/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/installation/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/bundles/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/configuration/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/add/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/flow/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/build/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/packages/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/config/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/provider/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/download/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/session/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/new/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/steps/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/publish/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/channels/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/cli/commands/run/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/channels/chatweb/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/channels/telegram/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/actions/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/channels/whatsapp/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/bootstrap/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/intelligent_text/comparador_textual/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/bundles/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/interaction/console/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/configuration/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/interaction/media/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/flow/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/interaction/message/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/packages/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/interaction/output/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/provider/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/session/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/example/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/steps/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/fields/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/channels/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/model/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/channels/chatweb/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/resolvers/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/channels/telegram/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/steps/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/channels/whatsapp/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/metaflow/validators/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/interaction/console/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/paginator/paginator/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/interaction/media/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/tests/tests_mock/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/interaction/message/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/4_expresso_flow/tratamento_falhas/step_safe/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/interaction/output/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/configuration/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/example/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/installation/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/fields/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/model/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/add/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/resolvers/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/build/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/steps/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/config/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/core/metaflow/validators/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/download/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/downloads/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/new/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/getting-started/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/publish/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/getting-started/first-flow/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/5_cli/commands/run/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/getting-started/installation/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/6_webflow/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/getting-started/quick-start/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/6_webflow/configuration/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/webflow/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/6_webflow/debugging/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/webflow/configuration/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/6_webflow/installation/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/webflow/debugging/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/6_webflow/interface/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/webflow/installation/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/7_referencia_api/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://exflow.run/webflow/interface/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <loc>https://exflow.run/7_referencia_api/bundle/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://exflow.run/7_referencia_api/channel/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://exflow.run/7_referencia_api/expresso-flow/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://exflow.run/7_referencia_api/flow/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://exflow.run/7_referencia_api/step/</loc>
+         <lastmod>2026-10-19</lastmod>
     </url>
 </urlset>
