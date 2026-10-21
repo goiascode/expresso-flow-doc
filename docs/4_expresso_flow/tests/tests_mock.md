@@ -6,20 +6,9 @@ Guia Completo: Testes e Injeção de Cenários Mock no Expresso Flow
 
 O framework Expresso Flow possui suporte nativo a testes isolados de fluxos conversacionais via injeção de dependências (`exflow.di`).
 
-A inicialização no `main.py` define o parâmetro `class_loader_paths=['tests']`:
+A inicialização no `main.py` define o parâmetro de testes caso o @mock estiver presente no projeto em questão:
 
-```python
-bootstrap = ExFlowBootstrap(
-    namespace="flow_example",
-    class_loader_paths=['tests'],  # <-- Registra fluxos e classes dentro da pasta /tests
-    bundles=[
-        ExFlowBundle(),
-        WebFlowStreamBundle(),
-    ]
-)
-```
-
-    O que o class_loader_paths=['tests'] habilita:
+    O que é habilitado mediante detecção:
 
         ° Auto-descoberta de Mocks via @mock: Qualquer classe anotada com @mock dentro de tests/ substitui automaticamente o serviço original no container de injeção de dependência (container.resolve(...)).             
         ° Descoberta de Comandos de Teste (ResetFlow): Fluxos de utilidade dentro de tests/flows/ (como o comando /flow reset) tornam-se disponíveis durante o desenvolvimento e homologação para alternar cenários em tempo real via chat.                    
@@ -33,14 +22,14 @@ example-flow/
 │   └── flows/flow/example_flow/
 │       ├── example_flow.py
 │       └── example_service/
-│           └── example_service.py       # Interface/Serviço original
+│           └── example_service.py          # Interface/Serviço original
 ├── tests/
 │   ├── flows/
-│   │   └── reset_flow.py            # Fluxo (/flow reset) para seleção interativa
+│   │   └── reset_flow.py                   # Fluxo (/flow reset) para seleção interativa
 │   └── mock/
-│       ├── mock_example_service.py      # Serviço anotado com @mock herdando de ExampleService
+│       ├── mock_example_service.py         # Serviço anotado com @mock herdando de ExampleService
 │       └── scenarios/
-│           ├── active_scenario.json # Ponteiro do cenário ativo no momento
+│           ├── active_scenario.json        # Ponteiro do cenário ativo no momento
 │           ├── primeira_via.json
 │           ├── segunda_via.json
 │           ├── autenticacao_entrar_autenticado.json
@@ -74,7 +63,7 @@ tests/mock/scenarios/autenticacao_entrar_autenticado.json:
     "id": 1,
     "nome_completo": "João da Silva",
     "cpf": "00999999999",
-    "telefone": "62 99341-0475",
+    "telefone": "62 99999-9999",
     "data_nascimento": "16/06/1940",
     "rg": "9999999",
     "logado": false,
@@ -165,7 +154,7 @@ class MockExampleService(ExampleService):
 ```
 
 Passo 3: Implementando o Fluxo de Escolha de Cenários (ResetFlow)
-Localizado em tests/flows/reset_flow.py, este fluxo é carregado via class_loader_paths=['tests'] e acionado diretamente pelo comando /flow reset:
+Localizado em tests/flows/reset_flow.py, este fluxo é carregado dinamicamente e acionado diretamente pelo comando /flow reset:
 
 ```python
 

@@ -18,8 +18,7 @@ ExpressoFlowBootstrap(
     host: str = "localhost",
     port: int = 8080,
     bundles: list[Bundle] = [],
-    is_debug: bool = False,
-    class_loader_paths: list[str] = [],
+    reload: bool = True,
 )
 ```
 
@@ -28,8 +27,7 @@ ExpressoFlowBootstrap(
 | `host` | `str` | `"localhost"` | Host de escuta do servidor |
 | `port` | `int` | `8080` | Porta do servidor |
 | `bundles` | `list[Bundle]` | `[]` | Bundles adicionais (registrados após os padrão) |
-| `is_debug` | `bool` | `False` | Ativa modo debug via `IS_DEBUG` env |
-| `class_loader_paths` | `list[str]` | `[]` | Pastas extras para carregamento automático de flows |
+| `reload` | `bool` | `True` | Ativa reload detectado por mudanças em código |
 
 ### Métodos
 

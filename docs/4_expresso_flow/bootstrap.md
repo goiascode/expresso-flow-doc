@@ -17,8 +17,7 @@ bootstrap = ExpressoFlowBootstrap(
     host="localhost",          # Host do servidor (padrão: "localhost")
     port=8080,                 # Porta do servidor (padrão: 8080)
     bundles=[],                # Bundles adicionais
-    is_debug=False,            # Ativa modo debug
-    class_loader_paths=[],     # Pastas extras para carregamento automático de flows
+    reload=True                # Recarrgamento automatico por mudanças em código
 )
 ```
 
@@ -27,8 +26,7 @@ bootstrap = ExpressoFlowBootstrap(
 | `host` | `str` | `"localhost"` | Host de escuta do servidor |
 | `port` | `int` | `8080` | Porta do servidor |
 | `bundles` | `list[Bundle]` | `[]` | Bundles adicionais registrados após os padrão |
-| `is_debug` | `bool` | `False` | Ativa logs detalhados via `IS_DEBUG` env |
-| `class_loader_paths` | `list[str]` | `[]` | Pastas extras para o `FlowLoaderBundle` carregar automaticamente |
+| `reload` | `bool` | `True` | Ativa reload detectado por mudanças em código |
 
 ---
 
@@ -89,14 +87,6 @@ app/services/      ← serviços internos
 app/apis/          ← integrações com APIs externas
 app/providers/     ← provedores de dados
 app/llms/          ← agentes e integrações de IA
-```
-
-Para adicionar pastas extras:
-
-```python
-bootstrap = ExpressoFlowBootstrap(
-    class_loader_paths=["app/custom", "app/integrations"],
-)
 ```
 
 ---
